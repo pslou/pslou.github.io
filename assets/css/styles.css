@@ -5,7 +5,7 @@
 
 h1 {
   font-size: 24px;
-  color: #27387c;
+  color: #27617c
 }
 
 p {
@@ -13,7 +13,12 @@ p {
   font-size: 16px;
 }
 
-hr.fadedline {
+a {
+  text-decoration: none;
+  color: #7c6d27
+}
+
+.fadedline {
   border: 0;
   height: 1px;
   clear: both;
@@ -30,9 +35,7 @@ hr.fadedline {
 }
 
 .bluehighlight {
-    background-color: #b1bce7;
-    background-color: #E6FFFF;
-
+  background-color: #e6dff5
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
