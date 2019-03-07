@@ -1,6 +1,6 @@
 /* GENERAL */
 * {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 
 h1 {
@@ -8,7 +8,18 @@ h1 {
 }
 
 p {
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
+}
+
+hr.fadedline {
+  border: 0;
+  height: 1px;
+  clear: both;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 
 .container {
@@ -63,7 +74,7 @@ img:hover {
   text-decoration: none;
 }
 
-#navigation ul li a:hover, 
+#navigation ul li a:hover,
 #navigation ul li a:active {
     background: #ccc;
     color: #fff;
