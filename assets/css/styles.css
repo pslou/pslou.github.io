@@ -57,7 +57,7 @@ img:hover {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/* NAVIGATION */
+/*#navigation */
 
 #navigation {
   font-size:16px;
@@ -71,14 +71,8 @@ img:hover {
   padding: 0;
 }
 
-#navigation ul li {
-  display: inline;
-  width: 60px;
-}
-
 #navigation ul li a {
   color: black;
-  padding: 8px 16px;
 }
 
 #navigation ul li a:focus {

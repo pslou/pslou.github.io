@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 
@@ -25,11 +25,16 @@
     <title>Paul S. Lou</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Misc CSS stuff -->
     <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
+
+	<!-- Bootstrap Javascript  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -45,7 +50,7 @@
     <!-- Load header -->
     <script>
       $(function(){
-        $("#header").load("header.html");
+        $("#header").load("misc-html-files/header.html");
       });
     </script>
 
@@ -90,30 +95,44 @@
       <!-- Publications, Education, Contact Me -->
       <div class="col-sm-12">
             <h1>Publications</h1>
-            <div class="well well-sm">
-              <a href="http://cr.yp.to/papers/pqrsa-20170419.pdf">Post-Quantum
-                RSA</a>. Daniel J. Bernstein, Nadia Heninger, Paul Lou, and
-            Luke Valenta. PQCrypto 2017.<br />
-            <blockquote style="font-size:8pt">
-                <a href="https://www.quantamagazine.org/why-quantum-computers-might-not-break-cryptography-20170515/">[Why Quantum Computers Might Not Break Cryptography]</a>
-            </blockquote>
+            <div class="card card-body bg-light">
+                <ul style="list-style-type:none; padding-left:0; margin-bottom:0">
+                    <li>
+                    <a href="http://cr.yp.to/papers/pqrsa-20170419.pdf">Post-Quantum
+                    RSA.</a> Daniel J. Bernstein, Nadia Heninger, Paul Lou, and
+                Luke Valenta. PQCrypto 2017.<br />
+                    <p style="font-size:8pt; padding-left:1em">
+                        <a href="https://www.quantamagazine.org/why-quantum-computers-might-not-break-cryptography-20170515/">[Why Quantum Computers Might Not Break Cryptography]</a>
+                    </p>
+                    </li>
+                </ul>
             </div>
+            <br/>
             <h1>TA Experience</h1>
-            <div class="well well-sm">
+            <div class="card card-body bg-light">
                 CIS-262: Theory of Computation, Fall 2016. <br />
                 CIS-380: Operating Systems, Fall 2017, 2018 (Head TA). <br />
                 CIS-548: Operating Systems (Graduate), Spring 2018. <br />
                 CIS-556: Cryptography (Graduate), Fall 2018 <br />
             </div>
+            <br/>
             <h1>Education</h1>
-            <div class="well well-sm">
-              B.S.E. Computer Science, Mathematics. University of Pennsylvania. December 2018.<br />
-              B.S. Economics, Concentration in Statistics. The Wharton School. December 2018.<br />
-              <a href="http://www.upenn.edu/fisher/about">Jerome Fisher Program in
+            <div class="card card-body text-center bg-light">
+              <a href="https://fisher.wharton.upenn.edu/about">Jerome Fisher Program in
                 Management &amp; Technology</a>
+                <br/>
+				<div class="row">
+					<div class="col-sm">
+					  B.S.E. Computer Science, Mathematics. University of Pennsylvania. December 2018.<br />
+					</div>
+					<div class="col-sm">
+					  B.S. Economics, Concentration in Statistics. The Wharton School. December 2018.<br />
+					</div>
+				</div>
             </div>
+            <br/>
             <h1>Contact me!</h1>
-            <div class="well well-sm">
+            <div class="card card-body bg-light">
             You can contact me by email: plou [AT] seas [DOT] upenn [DOT] edu.
             </div>
       </div>
