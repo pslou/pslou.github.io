@@ -18,6 +18,12 @@ a {
   color: #7c6d27
 }
 
+h6 {
+  display:inline;
+  color: #7c6d27
+}
+
+
 .fadedline {
   border: 0;
   height: 1px;
@@ -30,7 +36,7 @@ a {
 
 .container {
   margin: 0 auto 0 auto;
-  width: 740px;
+  max-width: 740px;
   float: center;
 }
 
@@ -48,7 +54,6 @@ img {
   border-radius:8px;
   vertical-align:middle;
   max-width: 20%;
-  min-width: 150px;
 }
 
 img:hover {
