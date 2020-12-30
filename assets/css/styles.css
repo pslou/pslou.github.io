@@ -4,7 +4,12 @@
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
+  color: #27617c
+}
+
+h2 {
+  font-size: 20px;
   color: #27617c
 }
 
@@ -44,6 +49,56 @@ h6 {
   background-color: #e6dff5
 }
 
+
+/*~~~~~~~*/
+/* LaTeX Theorem-like Environments */
+
+.theorem {
+	font-family: 'Lato', sans-serif;
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.theorem:before {
+	font-family: 'Lato', sans-serif;
+    content: "Theorem. \00a0";
+    font-weight: bold;
+    font-style: normal;
+}
+.lemma {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.lemma:before {
+    content: "Lemma. \00a0";
+    font-weight: bold;
+    font-style: normal;
+}
+.proof {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.proof:before {
+    content: "Proof. \00a0";
+    font-style: italic;
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+.definition {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.definition:before {
+    content: "Definition.\00a0";
+    font-weight: bold;
+    font-style: normal;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* IMAGES */
 
@@ -62,6 +117,13 @@ img:hover {
 
 #portrait {
 	float:right;
+}
+
+#landscape {
+	float:right;
+    max-width:100%;
+    height:auto;
+    text-align: center;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -111,6 +173,7 @@ img:hover {
 	min-width: 100%;
 
 }
+
 
 .portfolioImg:hover {opacity: 0.7;}
 
