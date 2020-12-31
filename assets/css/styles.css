@@ -151,7 +151,7 @@ img:hover {
 
 #navigation ul li a:hover,
 #navigation ul li a:active {
-    background: #ccc;
+    background: #ccf;
     color: #fff;
     -webkit-border-radius: 3px;
     margin: 0;
@@ -241,7 +241,7 @@ img:hover {
 
 .close:hover,
 .close:focus {
-  color: #bbb;
+  color: #ccc;
   text-decoration: none;
   cursor: pointer;
 }
