@@ -158,6 +158,10 @@ img:hover {
     text-decoration: none; /* This seems to remove the underlining */
 }
 
+.breadcrumb {
+	background-color: #ffffff;
+}
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* portfolio */
