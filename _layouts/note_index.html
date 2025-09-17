@@ -1,0 +1,246 @@
+---
+layout: default
+katex: true
+---
+<section class="notes-index">
+  <header>
+    <h1 class="note-title">Notes</h1>
+    <p class="note-meta">Lightweight posts with math typeset via KaTeX and code-friendly formatting.</p>
+  </header>
+
+  <div class="notes-search" role="search" aria-label="Filter notes">
+    <label>
+      <span class="sr-only">Search by title</span>
+      <input id="notes-search-text" type="search" placeholder="Search by title or keywords" aria-label="Search by title or keywords">
+    </label>
+  </div>
+
+  <div class="notes-search__tags" id="notes-tag-filter" aria-label="Filter by tag">
+    <!-- tags populated by script -->
+  </div>
+
+  <div id="notes-results" class="notes-grid"></div>
+  <div id="notes-sentinel" aria-hidden="true"></div>
+</section>
+
+{% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const notesData = [
+      {% for note in sorted_notes %}
+      {
+        title: {{ note.title | jsonify }},
+        url: {{ note.url | relative_url | jsonify }},
+        date: {{ note.date | date: "%B %-d, %Y" | jsonify }},
+        tags: {% if note.tags %}{{ note.tags | uniq | jsonify }}{% else %}[]{% endif %},
+        excerpt: {{ note.excerpt | strip_html | normalize_whitespace | jsonify }},
+        excerptHtml: {{ note.excerpt | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    const resultsEl = document.getElementById('notes-results');
+    const textEl = document.getElementById('notes-search-text');
+    const tagsEl = document.getElementById('notes-tag-filter');
+    const sentinelEl = document.getElementById('notes-sentinel');
+
+    if (!resultsEl) return;
+
+    const mathOptions = {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\(', right: '\)', display: false },
+        { left: '\[', right: '\]', display: true }
+      ],
+      throwOnError: false
+    };
+
+    const state = {
+      query: '',
+      tags: new Set()
+    };
+
+    const PAGE_SIZE = 5;
+    let visibleItems = [];
+    let renderedCount = 0;
+
+    function applyMath() {
+      if (window.renderMathInElement) {
+        window.renderMathInElement(resultsEl, mathOptions);
+      } else {
+        window.setTimeout(applyMath, 50);
+      }
+    }
+
+    function buildNoteHref(baseUrl) {
+      const params = new URLSearchParams();
+      const rawQuery = textEl ? textEl.value.trim() : '';
+      if (rawQuery) {
+        params.set('q', rawQuery);
+      }
+      if (state.tags.size) {
+        params.set('tags', Array.from(state.tags).join(','));
+      }
+      params.set('from', 'notes');
+      const query = params.toString();
+      return query ? `${baseUrl}?${query}` : baseUrl;
+    }
+
+    function buildCard(note) {
+      const article = document.createElement('article');
+      article.className = 'notes-card';
+      const tagsMarkup = note.tags.length
+        ? `<div class="notes-card__tags">${note.tags.map(tag => `<span class="notes-card__tag">${tag}</span>`).join('')}</div>`
+        : '';
+      const excerptMarkup = note.excerptHtml ? note.excerptHtml : '';
+      const noteHref = buildNoteHref(note.url);
+      article.innerHTML = `
+        <h2><a href="${noteHref}">${note.title}</a></h2>
+        <div class="notes-card__meta">${note.date}</div>
+        ${tagsMarkup}
+        ${excerptMarkup}
+      `;
+      return article;
+    }
+
+    function clearResults() {
+      renderedCount = 0;
+      resultsEl.innerHTML = '';
+    }
+
+    function renderChunk() {
+      if (renderedCount >= visibleItems.length) return;
+      const frag = document.createDocumentFragment();
+      const slice = visibleItems.slice(renderedCount, renderedCount + PAGE_SIZE);
+      slice.forEach(note => frag.appendChild(buildCard(note)));
+      resultsEl.appendChild(frag);
+      renderedCount += slice.length;
+      applyMath();
+    }
+
+    let userHasScrolled = false;
+
+    function maybeLoadMore(force = false) {
+      if (!sentinelEl) return;
+      if (renderedCount >= visibleItems.length) return;
+      if (!force && !userHasScrolled) return;
+      const rect = sentinelEl.getBoundingClientRect();
+      if (rect.top <= window.innerHeight + 120) {
+        renderChunk();
+      }
+    }
+
+    function matchesQuery(note) {
+      if (!state.query) return true;
+      const terms = state.query.split(/\s+/).filter(Boolean);
+      if (!terms.length) return true;
+      const haystack = (note.title + ' ' + note.excerpt + ' ' + note.tags.join(' ')).toLowerCase();
+      return terms.every(term => haystack.includes(term));
+    }
+
+    function matchesTags(note) {
+      if (!state.tags.size) return true;
+      return Array.from(state.tags).every(tag => note.tags.includes(tag));
+    }
+
+    function syncUrl() {
+      const params = new URLSearchParams();
+      const rawQuery = textEl ? textEl.value.trim() : '';
+      if (rawQuery) {
+        params.set('q', rawQuery);
+      }
+      if (state.tags.size) {
+        params.set('tags', Array.from(state.tags).join(','));
+      }
+      const queryString = params.toString();
+      const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    function renderNotes() {
+      syncUrl();
+      const items = notesData
+        .filter(matchesQuery)
+        .filter(matchesTags);
+
+      visibleItems = items;
+      if (!visibleItems.length) {
+        clearResults();
+        resultsEl.innerHTML = '<p>No notes match the current filters.</p>';
+        applyMath();
+        return;
+      }
+
+      clearResults();
+      renderChunk();
+    }
+
+    function toggleTag(tag, pill) {
+      if (state.tags.has(tag)) {
+        state.tags.delete(tag);
+        pill.classList.remove('notes-search__tag--active');
+      } else {
+        state.tags.add(tag);
+        pill.classList.add('notes-search__tag--active');
+      }
+      renderNotes();
+    }
+
+    function buildTags() {
+      const unique = new Set();
+      notesData.forEach(note => {
+        note.tags.forEach(tag => unique.add(tag));
+      });
+      if (!unique.size) return;
+      tagsEl.innerHTML = Array.from(unique).sort().map(tag => `
+        <button type="button" class="notes-search__tag" data-tag="${tag}">${tag}</button>
+      `).join('');
+      tagsEl.addEventListener('click', event => {
+        if (event.target.matches('.notes-search__tag')) {
+          toggleTag(event.target.dataset.tag, event.target);
+        }
+      });
+      tagsEl.querySelectorAll('.notes-search__tag').forEach(button => {
+        if (state.tags.has(button.dataset.tag)) {
+          button.classList.add('notes-search__tag--active');
+        }
+      });
+    }
+
+    textEl?.addEventListener('input', event => {
+      state.query = event.target.value.trim().toLowerCase();
+      renderNotes();
+    });
+
+    const initialParams = new URLSearchParams(window.location.search);
+    const initialQuery = initialParams.get('q');
+    if (textEl) {
+      if (initialQuery) {
+        textEl.value = initialQuery;
+        state.query = initialQuery.trim().toLowerCase();
+      } else {
+        state.query = '';
+      }
+    }
+    const initialTags = initialParams.get('tags');
+    if (initialTags) {
+      initialTags.split(',').filter(Boolean).forEach(tag => state.tags.add(tag));
+    }
+
+    window.addEventListener('scroll', () => {
+      userHasScrolled = true;
+      maybeLoadMore();
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (userHasScrolled) {
+        maybeLoadMore(true);
+      }
+    });
+
+    buildTags();
+    renderNotes();
+  });
+</script>

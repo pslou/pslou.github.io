@@ -1,0 +1,111 @@
+---
+layout: default
+---
+{% assign sorted_notes = site.notes | sort: 'date' | reverse %}
+{% assign prev_note = nil %}
+{% assign next_note = nil %}
+{% assign previous_item = nil %}
+{% assign found_current = false %}
+{% for item in sorted_notes %}
+  {% if item.url == page.url %}
+    {% assign prev_note = previous_item %}
+    {% assign found_current = true %}
+  {% elsif found_current %}
+    {% assign next_note = item %}
+    {% break %}
+  {% endif %}
+  {% assign previous_item = item %}
+{% endfor %}
+
+<article class="note">
+  <header>
+    <h1 class="note-title">{{ page.title }}</h1>
+    <div class="note-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    </div>
+    {% if page.tags and page.tags != empty %}
+    <div class="note-tags" aria-label="note tags">
+      {% for tag in page.tags %}
+        <a class="note-tag" href="{{ '/notes/' | relative_url }}?tags={{ tag | uri_escape }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <nav class="note-nav note-nav--top" aria-label="Note navigation">
+      <div class="note-nav__group note-nav__group--left">
+        {% if prev_note %}
+        <a class="note-nav__link note-nav__link--prev" href="{{ prev_note.url | relative_url }}" data-base-href="{{ prev_note.url | relative_url }}" aria-label="Newer note">
+          &#8592; Newer
+        </a>
+        {% endif %}
+      </div>
+      <div class="note-nav__group note-nav__group--center">
+        <a class="note-nav__link note-nav__link--back" href="{{ '/notes/' | relative_url }}" data-base-href="{{ '/notes/' | relative_url }}" aria-label="Back to archive">
+          Back to archive
+        </a>
+      </div>
+      <div class="note-nav__group note-nav__group--right">
+        {% if next_note %}
+        <a class="note-nav__link note-nav__link--next" href="{{ next_note.url | relative_url }}" data-base-href="{{ next_note.url | relative_url }}" aria-label="Older note">
+          Older &#8594;
+        </a>
+        {% endif %}
+      </div>
+    </nav>
+  </header>
+  <div class="note-content">
+    {{ content }}
+  </div>
+  <nav class="note-nav note-nav--bottom" aria-label="Note navigation">
+    <div class="note-nav__group note-nav__group--left">
+      {% if prev_note %}
+      <a class="note-nav__link note-nav__link--prev" href="{{ prev_note.url | relative_url }}" data-base-href="{{ prev_note.url | relative_url }}" aria-label="Newer note">
+        &#8592; Newer
+      </a>
+      {% endif %}
+    </div>
+    <div class="note-nav__group note-nav__group--center">
+      <a class="note-nav__link note-nav__link--back" href="{{ '/notes/' | relative_url }}" data-base-href="{{ '/notes/' | relative_url }}" aria-label="Back to archive">
+        Back to archive
+      </a>
+    </div>
+    <div class="note-nav__group note-nav__group--right">
+      {% if next_note %}
+      <a class="note-nav__link note-nav__link--next" href="{{ next_note.url | relative_url }}" data-base-href="{{ next_note.url | relative_url }}" aria-label="Older note">
+        Older &#8594;
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const hasFilters = params.has('tags') || params.has('q') || params.get('from') === 'notes';
+    if (!hasFilters) return;
+
+    const filters = new URLSearchParams();
+    if (params.has('tags')) {
+      filters.set('tags', params.get('tags'));
+    }
+    if (params.has('q')) {
+      filters.set('q', params.get('q'));
+    }
+    filters.set('from', 'notes');
+
+    document.querySelectorAll('[data-base-href]').forEach(link => {
+      const base = link.getAttribute('data-base-href');
+      if (!base) return;
+      try {
+        const url = new URL(base, window.location.origin);
+        filters.forEach((value, key) => {
+          url.searchParams.set(key, value);
+        });
+        const relative = url.pathname + (url.search ? url.search : '');
+        link.setAttribute('href', relative);
+      } catch (error) {
+        // ignore malformed URLs
+      }
+    });
+  });
+</script>

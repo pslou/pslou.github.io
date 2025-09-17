@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.name | default: site.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description | escape }}">{% endif %}
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700|Lato:300,400,700&display=swap">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    {% if page.katex %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav">
+        <a class="site-nav__link" href="/">home</a>
+        <a class="site-nav__link" href="/notes/">notes</a>
+        <a class="site-nav__link" href="/personal.html">personal</a>
+        <a class="site-nav__link" href="/portfolio.html">hobbies</a>
+        <a class="site-nav__link" href="/blog/index">random</a>
+      </nav>
+    </header>
+    <main class="site-main">
+      {{ content }}
+    </main>
+    {% if page.katex %}
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false },
+              { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
+    {% endif %}
+  </body>
+</html>

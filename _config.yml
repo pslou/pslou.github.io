@@ -1,0 +1,29 @@
+# Site configuration for Jekyll-driven notes
+name: pslou.github.io
+baseurl: ""
+url: ""
+permalink: pretty
+collections:
+  notes:
+    output: true
+    permalink: /notes/:slug/
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+      katex: true
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+excerpt_separator: '<!--more-->'
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md

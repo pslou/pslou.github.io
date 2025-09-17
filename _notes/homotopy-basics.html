@@ -1,79 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+---
+title: Homotopy Basics
+date: 2023-12-31
+tags:
+  - topology
+  - algebraic topology
+---
 
-    <title>Homotopy Basics</title>
+(Resources: Exercises from Munkres, Topology and personal notes from long ago.)
 
-	<!-- Bootstrap Javascript  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--more-->
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+A homotopy is a continuous deformation between two continuous functions.
+We begin by reviewing the concatenation operation on loops.
+Given loops $\alpha, \beta, \gamma$ based at $x_0 \in X$, for topological space $X$, we first prove the following properties of the concatenation operation $\star$:
+<ol>
+<li> (Associativity) $[\alpha] \star ([\beta] \star [\gamma]) =
+([\alpha] \star [\beta]) \star [\gamma]$. </li>
+<li> (Right/left identities) $[\alpha] \star [e_{x_0}] = [e_{x_0}] \star [\alpha] = [\alpha]$. </li>
+<li> (Right/left inverses) $[\alpha] \star [\hat{\alpha}] = [\hat{\alpha}] \star [\alpha] = [e_{x_0}]$ where $\hat{\alpha}(t) = \alpha (1 - t)$. </li>
+</ol>
 
-    <!-- Favicon stuff -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png"/>
-
-    <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Misc CSS stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
-
-	<!-- Math stuff -->
-    <script src="/assets/js/load-mathjax.js" async></script>
-</head>
-
-<body>
-
-    <div id="header">
-    <!-- Load header -->
-    <script>
-      $(function(){
-        $("#header").load("/header.html");
-      });
-    </script>
-	</div>
-
-    <div id="breadcrumb">
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/notes/root">notes</a></li>
-                <li class="breadcrumb-item active">Homotopy Basics</li>
-			</ol>
-        </nav>
-    </div>
-
-
-    <div class="container">
-      <div class="col-sm-12">
-
-	(Resources: Exercises from Munkres, Topology and personal notes from long ago.)
-	</br>
-	</br>
-
-	A homotopy is a continuous deformation between two continuous functions.
-	We begin by reviewing the concatenation operation on loops.
-	Given loops $\alpha, \beta, \gamma$ based at $x_0 \in X$, for topological space $X$, we first prove the following properties of the concatenation operation $\star$:
-	<ol>
-		<li> (Associativity) $[\alpha] \star ([\beta] \star [\gamma]) =
-		([\alpha] \star [\beta]) \star [\gamma]$. </li>
-		<li> (Right/left identities) $[\alpha] \star [e_{x_0}] = [e_{x_0}] \star [\alpha] = [\alpha]$. </li>
-		<li> (Right/left inverses) $[\alpha] \star [\hat{\alpha}] = [\hat{\alpha}] \star [\alpha] = [e_{x_0}]$ where $\hat{\alpha}(t) = \alpha (1 - t)$. </li>
-	</ol>
-
-	<div class ="proof">
-	<ol>
+<div class ="proof">
+<ol>
     <li> (Associativity) The concatenation operation $\star$ defined on paths instead of the induced operation on path-homotopy classes is not associative.
     Namely,
-    \begin{align*}
+    $$\begin{align*}
         (\alpha \star (\beta \star \gamma))(s) & =
         \begin{cases}
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
@@ -85,10 +36,10 @@
             \alpha(4s) & s \in [0, \frac{1}{4}]\\
             \beta(4s - 1) & s \in [\frac{1}{4}, \frac{1}{2}]\\
             \gamma(2s - 1) & s \in [\frac{1}{2}, 1].
-        \end{cases}\\
-    \end{align*}
+        \end{cases}
+    \end{align*}$$
     However, the two concatenated paths are path-homotopic by defining the following homotopy:
-    \begin{align*}
+    $$\begin{align*}
         H(s, t) & =
         \begin{cases}
             \alpha (\frac{4s}{2-t}) & s \in [0, \frac{2-t}{4}]\\
@@ -101,9 +52,9 @@
             \beta (4s + t - 2) & s \in [\frac{2-t}{4}, \frac{3-t}{4}]\\
             \gamma (\frac{4s + t -3}{t + 1}) & s \in [\frac{3-t}{4}, 1]
         \end{cases}.
-    \end{align*}
+    \end{align*}$$
     Note that:
-    \begin{align*}
+    $$\begin{align*}
         H(s, 0) & = (\alpha \star (\beta \star \gamma))(s)\\
         H(s, 1) & = ((\alpha \star \beta) \star \gamma)(s)\\
         H(0, t) & = ((\alpha \star \beta) \star \gamma)(0) \\
@@ -112,29 +63,29 @@
         H(1, t) & = ((\alpha \star \beta) \star \gamma)(1) \\
            & = (\alpha \star (\beta \star \gamma))(1)\\
            & = \gamma(1) = x_0.
-    \end{align*}
+    \end{align*}$$
     One can plug in the bounds for the $s$ to show that $\frac{4s}{2-t}$ at $s = \frac{2-t}{4}$ is equivalent to $1$, $4s + t - 2$ at $s = \frac{2-t}{4}$ is equivalent to $0$, $4s + t - 2$ at $s = \frac{3-t}{4}$ is equivalent to $1$, and $\frac{4s + t -3}{t + 1}$ at $s = \frac{3-t}{4}$ is equivalent to $0$.
     Since $\alpha(1) = \beta(0) = \beta(1) = \gamma(0) = x_0$, the boundary points of the closed intervals for $s$ agree in each case.
     The denominators are all bounded away from $0$ since $t \in [0, 1]$, so for each path reparametrization we have a composition of continuous functions which is continuous.
     Thus, the pasting lemma can be applied and $H(s, t)$ is continuous.
     Hence $H(s, t)$ is a path-homotopy from $(\alpha \star (\beta \star \gamma))(s)$ to $((\alpha \star \beta) \star \gamma)(s)$.
     It follows that:
-    \begin{align*}
+    $$\begin{align*}
         [\alpha \star (\beta \star \gamma)] = [(\alpha \star \beta) \star \gamma].
-    \end{align*}
+    \end{align*}$$
     By definition of the induced operation on path-homotopy classes:
-    \begin{align*}
+    $$\begin{align*}
         [\alpha] \star ([\beta] \star [\gamma]) &= [\alpha \star (\beta \star \gamma)]\\
         &= [(\alpha \star \beta) \star \gamma]\\
         &= ([\alpha] \star [\beta]) \star [\gamma].
-    \end{align*}
+    \end{align*}$$
 
-	</li>
+</li>
     <li> (Right/left identities)
 
     Define the path $e_{x_0}(s) = x_0$ for $s \in [0, 1]$.
     Note that
-    \begin{align*}
+    $$\begin{align*}
         (\alpha \star e_{x_0}) (s) &=
         \begin{cases}
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
@@ -145,9 +96,9 @@
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
             x_0 & s \in [\frac{1}{2}, 1]
         \end{cases}.
-    \end{align*}
+    \end{align*}$$
 
-    \begin{align*}
+    $$\begin{align*}
         (e_{x_0} \star \alpha) (s) & =
         \begin{cases}
             e_{x_0}(2s) & s \in [0, \frac{1}{2}]\\
@@ -157,49 +108,49 @@
         \begin{cases}
             x_0 & s \in [0, \frac{1}{2}]\\
             \alpha(2s - 1) & s \in [\frac{1}{2}, 1]
-        \end{cases}\\
-    \end{align*}
+        \end{cases}
+    \end{align*}$$
     We prove that $\alpha \star e_{x_0}$ and $e_{x_0} \star \alpha$ are each path-homotopic to $\alpha$.
     Define the mapping $H_1(s, t)$ between $\alpha \star e_{x_0}$ and $\alpha$:
-    \begin{align*}
+    $$\begin{align*}
         H_1(s, t) & =
         \begin{cases}
             \alpha(2s) (1 -t) + \alpha(s) t  & s \in [0, \frac{1}{2}]\\
             x_0 (1 -t) + \alpha(s) t & s \in [\frac{1}{2}, 1]
         \end{cases}
-    \end{align*}
+    \end{align*}$$
     $H_1(s,t)$ is in fact continuous by first observing we are using a linear reparametrization and then noting in the boundary condition at $s = \frac{1}{2}$ that $2s = 1$ and $\alpha(1) = x_0$ so $\alpha(2s)(1-t) + \alpha(s) t = x_0(1-t) + t \alpha(s)$; hence we can apply the pasting lemma.
     $H_1(s, t)$ also satisfies the other part of being a path-homotopy between $\alpha \star e_{x_0}$ and $\alpha$ :
-    \begin{align*}
+    $$\begin{align*}
         H_1(s, 0) & = \alpha \star e_{x_0}\\
         H_1(s, 1) & = \alpha \\
         H_1(0, t) & = \alpha(0) = x_0 \\
         H_1(1, t) & = \alpha(1) = x_0.
-    \end{align*}
+    \end{align*}$$
     Hence $[\alpha \star e_{x_0}] = [\alpha]$.
 
     Similarly, we can define $H_2(s, t)$ to be:
-    \begin{align*}
+    $$\begin{align*}
         H_2(s, t) & =
         \begin{cases}
             x_0 (1 -t) + \alpha(s) t & s \in [0, \frac{1}{2}]\\
             \alpha(2s - 1) (1 -t) + \alpha(s) t  & s \in [\frac{1}{2}, 1]
         \end{cases}
-    \end{align*}
+    \end{align*}$$
     which is a path-homotopy between $e_{x_0} \star \alpha$ an $\alpha$ by the same reasoning above.
     Hence $[e_{x_0} \star \alpha] = [\alpha]$.
 
     Therefore,
-    \begin{align*}
+    $$\begin{align*}
         [e_{x_0}] \star [\alpha] & = [e_{x_0} \star \alpha]\\
         &= [\alpha]\\
         &= [\alpha \star e_{x_0}]\\
         &= [\alpha] \star [e_{x_0}].
-    \end{align*}
+    \end{align*}$$
     </li>
-	<li>(Right/left inverses) $[\alpha] \star [\hat{\alpha}] = [\hat{\alpha}] \star [\alpha] = [e_{x_0}]$ where $\hat{\alpha}(t) = \alpha (1 - t)$.
+<li>(Right/left inverses) $[\alpha] \star [\hat{\alpha}] = [\hat{\alpha}] \star [\alpha] = [e_{x_0}]$ where $\hat{\alpha}(t) = \alpha (1 - t)$.
 
-    \begin{align*}
+    $$\begin{align*}
         \alpha \star \hat{\alpha} &=
         \begin{cases}
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
@@ -209,118 +160,105 @@
         \begin{cases}
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
             \alpha(2 -2s) & s \in [\frac{1}{2}, 1]
-        \end{cases}\\
-    \end{align*}
+        \end{cases}\\\
+    \end{align*}$$
 
     We define the following path-homotopy $G_1$ between $\alpha \star \hat{\alpha}$ and $e_{x_0}$:
-    \begin{align*}
+    $$\begin{align*}
         G_1(s, t) &=
         \begin{cases}
         \alpha(2s)(1-t) + x_0 t & s \in [0, \frac{1}{2}]\\
         \alpha(2-2s)(1-t)+ x_0 t & s \in [\frac{1}{2}, 1]
         \end{cases}.
-    \end{align*}
+    \end{align*}$$
     Note that $G_1(s, t)$ is continuous by the pasting lemma since $\alpha(1) = \hat{\alpha}(0)$ and composition of continuous functions are continuous.
     Moreover:
-    \begin{align*}
+    $$\begin{align*}
         G_1(s, 0) &=
         \begin{cases}
             \alpha(2s) & s \in [0, \frac{1}{2}]\\
             \alpha(2-2s) & s \in [\frac{1}{2}, 1]
-        \end{cases}\\
+        \end{cases}\\\
         & = \alpha \star \hat{\alpha}\\
         G_1(s, 1) & = x_0\\
         G_1(0, t) & = x_0\\
         G_1(1, t) & = x_0.
-    \end{align*}
+    \end{align*}$$
     Hence $G_1(s, t)$ is a path-homotopy from $\alpha \star \hat{\alpha}$ to $e_{x_0}$.
 
     Similarly, we define the following path-homotopy $G_2$ between $\hat{\alpha} \star \alpha$  and $e_{x_0}$:
-    \begin{align*}
+    $$\begin{align*}
         G_2(s, t) &=
         \begin{cases}
-        \alpha(1 - 2s)(1-t) + x_0 t & s \in [0, \frac{1}{2}]\\
+        \alpha(1 - 2s)(1-t) + x_0 t & s \in [0, \frac{1}{2}]\\\
         \alpha(2s - 1)(1-t)+ x_0 t & s \in [\frac{1}{2}, 1]
         \end{cases}.
-    \end{align*}
+    \end{align*}$$
     Note that
-    \begin{align*}
+    $$\begin{align*}
         G_2(s, 0) &=
         \begin{cases}
-            \alpha(1 - 2s) & s \in [0, \frac{1}{2}]\\
+            \alpha(1 - 2s) & s \in [0, \frac{1}{2}]\\\
             \alpha(2s - 1) & s \in [\frac{1}{2}, 1]
-        \end{cases}\\
-        &= \hat{\alpha} \star \alpha\\
-        G_2(s, 1) &= x_0\\
-        G_2(0, t) &= x_0\\
+        \end{cases}\\\
+        &= \hat{\alpha} \star \alpha\\\
+        G_2(s, 1) &= x_0\\\
+        G_2(0, t) &= x_0\\\
         G_2(1, t) &= x_0.
-    \end{align*}
+    \end{align*}$$
     And $G_2$ is continuous for the same reasons given above for $G_1$.
     Hence $G_2(s, t)$ is a path-homotopy from $\hat{\alpha} \star \alpha$ to $e_{x_0}$.
 
     Therefore,
-    \begin{align*}
-    [\alpha] \star [\hat{\alpha}] & = [\alpha \star \hat{\alpha}]\\
-    &= [e_{x_0}]\\
-    &= [\hat{\alpha} \star \alpha]\\
+    $$\begin{align*}
+    [\alpha] \star [\hat{\alpha}] & = [\alpha \star \hat{\alpha}]\\\
+    &= [e_{x_0}]\\\
+    &= [\hat{\alpha} \star \alpha]\\\
     &= [\hat{\alpha}] \star [\alpha]
-    \end{align*}
-	</li>
-	</ol>
-	</div>
-	</br>
-	</br>
+    \end{align*}$$
+</li>
+</ol>
+</div>
 
-	<div class="lemma">
+<div class="lemma">
     Given spaces $X$ and $Y$, let $[X, Y]$ denote the set of homotopy classes of maps of $X$ into $Y$.
     Let $I = [0, 1]$. For any $X$, the set $[X ,I]$ has a single element.
-	</div>
-	<div class="proof">
+</div>
+<div class="proof">
       We show that give any two continuous functions $f : X \to I$ and $f' : X \to I$, we define a homotopy $H : X \times [0, 1] \to I $ from $f$ to $f'$.
     Since $[0, 1]$ is a subset of the real line which is a vector space, the additional and scalar multiplication operations are well-defined.
-    \begin{align*}
+    $$\begin{align*}
         H(s, t) &= f'(s) (1-t) + f(s) t.
-    \end{align*}
+    \end{align*}$$
     Note that
-    \begin{align*}
-        H(s, 0) &= f'(s)\\
+    $$\begin{align*}
+        H(s, 0) &= f'(s)\\\
         H(s, 1) &= f(s)
-    \end{align*}
+    \end{align*}$$
     and $H$ is continuous as it is a linear combination of continuous functions.
     So $H$ is a homotopy, and any two continuous functions $f, f'$ are homotopic.
     Hence, the set $[X, I]$ has a single homotopy class.
 
-	</div>
-	</br>
-	</br>
+</div>
 
-
-
-
-	<div class="lemma">
-	If $Y$ is path connected, the set $[I, Y]$ has a single element.
-	</div>
-	<div class="proof">
-	Suppose that $Y$ is path connected.
+<div class="lemma">
+If $Y$ is path connected, the set $[I, Y]$ has a single element.
+</div>
+<div class="proof">
+Suppose that $Y$ is path connected.
     Given any point $x_0 \in Y$, the identity loop given by $e_{x_0} : [0, 1] \to Y$ where $e_{x_0}(s) = x_0$ is homotopic to any path $\alpha$ starting at $x_0$ by the following homotopy:
-    \begin{align*}
+    $$\begin{align*}
         H(s,t) = \alpha(s(1-t)).
-    \end{align*}
+    \end{align*}$$
     Note that:
-    \begin{align*}
-        H(s, 0) &= \alpha(s)\\
+    $$\begin{align*}
+        H(s, 0) &= \alpha(s)\\\
         H(s, 1) &= \alpha(0) = x_0 = e_{x_0}
-    \end{align*}
+    \end{align*}$$
     and $s(1-t)$ is continuous in $s, t$ so $H(s, t)$ is continuous by composition.
     Since $Y$ is path connected, there exists a path from every point $y \in Y$ to $x_0$ so the identity loop for any $y$ is homotopic with the path from $y$ to $x_0$ which is homotopic by symmetry to the identity loop on $x_0$.
     So any path from $x$ to $y$ is homotopic by transitivity to the identity loop on $x_0$ and hence $[I, Y]$ is a single element.
-	</div>
-	</div>
-	</br>
-	</br>
+</div>
+</div>
 
-	</div>
-
-
-  </body>
-</html>
+</div>
