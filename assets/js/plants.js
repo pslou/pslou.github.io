@@ -6,9 +6,9 @@
   function isDark() {
     return document.documentElement.getAttribute('data-theme') === 'dark';
   }
-  function g() { return isDark() ? '#5a9e6f' : '#4a7c58'; } /* stem green  */
-  function p() { return isDark() ? '#d4936e' : '#c8836a'; } /* petal warm  */
-  function k() { return isDark() ? '#c8a63a' : '#b8882a'; } /* center gold */
+  function g() { return isDark() ? '#5a9e90' : '#4a7c58'; } /* stem — muted sage  */
+  function p() { return isDark() ? '#d4836e' : '#c8836a'; } /* petal warm         */
+  function k() { return isDark() ? '#7aaa98' : '#b8882a'; } /* center — accent    */
 
   /* Four SVG plant templates */
   var PLANTS = [

@@ -6,11 +6,11 @@ permalink: /personal.html
 ---
 
 <section class="page-section" style="margin-top: 1rem;">
-  <h1>About Me</h1>
+  <h1 style="border-bottom:1px solid var(--c-border); padding-bottom:0.65rem; margin-bottom:1.5rem;">About Me</h1>
   <img
     src="/assets/images/whistler.jpg"
     alt="Whistler mountain in winter"
-    style="width:100%; border-radius:0.6rem; margin-bottom:1.5rem; border:1px solid var(--c-border);"
+    style="width:100%; max-height:300px; object-fit:cover; object-position:center 30%; border-radius:0.6rem; margin-bottom:1.5rem; border:1px solid var(--c-border);"
   >
   <p>
     My hobbies include skiing, running, yoga, listening to podcasts,
@@ -46,3 +46,32 @@ permalink: /personal.html
 </div>
 
 <script src="/assets/js/modal.js"></script>
+<script src="/assets/js/mountains.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var plantBtn    = document.getElementById('plant-btn');
+    var mountainBtn = document.getElementById('mountain-btn');
+
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      /* If leaving dark mode with mountains planted, clear them */
+      if (!dark && mountainBtn && mountainBtn.classList.contains('is-planted')) {
+        mountainBtn.click();
+      }
+      /* If leaving light mode with plants grown, clear them */
+      if (dark && plantBtn && plantBtn.classList.contains('is-planted')) {
+        plantBtn.click();
+      }
+      /* Show the right button for the current mode */
+      if (plantBtn)    plantBtn.style.display    = dark ? 'none' : 'flex';
+      if (mountainBtn) mountainBtn.style.display = dark ? 'flex' : 'none';
+    }
+
+    sync();
+    /* Keep in sync when user toggles the theme */
+    new MutationObserver(sync).observe(
+      document.documentElement,
+      { attributes: true, attributeFilter: ['data-theme'] }
+    );
+  });
+</script>

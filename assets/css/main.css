@@ -5,12 +5,11 @@
 
 /* ===== 1. CSS Custom Properties ===== */
 :root {
-  /* Brand palette
-     Primary teal  #1d607a  ≈ OKLCH(L48, C0.09, H210) — 6.1:1 on cream
-     Accent gold   #7a6020  ≈ OKLCH(L48, C0.12, H72)  — 5.5:1 on cream
-     Both share L≈48 for perceptual balance; hues ~138° apart (near-complementary split) */
-  --c-primary:      #1d607a;
-  --c-accent:       #7a6020;
+  /* Brand palette — ocean blue
+     Primary   #0d6590  ≈ OKLCH(L50, C0.11, H212) — 6.1:1 on cream   vivid ocean teal
+     Accent    #3a5a88  ≈ OKLCH(L41, C0.09, H242) — 6.7:1 on cream   clear blue-slate */
+  --c-primary:      #0d6590;
+  --c-accent:       #3a5a88;
 
   /* Surface colours — warm cream palette */
   --c-bg:           #f9f6f0;
@@ -25,14 +24,13 @@
   --c-border:       #e0d9cf;
 
   /* Links */
-  --c-link:         #7a6020;
-  --c-link-header:  #1d607a;
+  --c-link:         #3a5a88;
+  --c-link-header:  #0d6590;
 
-  /* Highlights
-     Purple hue ~270° — triadic with teal (~210°) and gold (~72°) */
-  --c-highlight:    #ebe6f9;
-  --c-tag-bg:       rgba(29, 96, 122, 0.1);
-  --c-tag-accent:   rgba(122, 96, 32, 0.13);
+  /* Highlights — pale blue tint */
+  --c-highlight:    #d8ecf6;
+  --c-tag-bg:       rgba(13, 101, 144, 0.10);
+  --c-tag-accent:   rgba(58, 90, 136, 0.11);
 
   /* Typography */
   --font-display: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -49,19 +47,23 @@
 }
 
 [data-theme="dark"] {
-  /* Dark mode: raise L to ~74 for both primary and accent — same OKLCH logic */
-  --c-primary:     #72bccc;  /* OKLCH(L74, C0.09, H210) — 8.1:1 on dark bg */
-  --c-accent:      #c8a63a;  /* OKLCH(L74, C0.13, H72)  — 7.8:1 on dark bg */
-  --c-bg:          #1a1917;  /* warm near-black */
-  --c-bg-card:     #221f1c;
-  --c-bg-input:    #2b2825;
-  --c-text:        #e3ddd5;  /* warm light */
-  --c-text-muted:  #998f87;  /* warm muted */
-  --c-border:      #3d3830;  /* warm border */
-  --c-link:        #c8a63a;
-  --c-highlight:   rgba(148, 112, 230, 0.16);  /* purple tint — same hue family */
-  --c-tag-bg:      rgba(114, 188, 204, 0.12);
-  --c-tag-accent:  rgba(200, 166, 58, 0.15);
+  /* Dark mode — deep navy / sky blue + soft lavender
+     Primary sky blue   #6aacde  ≈ OKLCH(L69, C0.10, H222) — 7.5:1 on dark bg
+     Accent lavender    #a090cc  ≈ OKLCH(L62, C0.08, H286) — 6.2:1 on dark bg
+     No green anywhere — clean, academic night palette */
+  --c-primary:     #6aacde;  /* clear sky blue   */
+  --c-accent:      #a090cc;  /* muted lavender   */
+  --c-bg:          #141820;  /* deep cool navy   */
+  --c-bg-card:     #1c2030;
+  --c-bg-input:    #222640;
+  --c-text:        #d0d4e8;  /* slightly blue-white */
+  --c-text-muted:  #6878a0;
+  --c-border:      #242a3a;
+  --c-link:        #a090cc;
+  --c-link-header: #6aacde;
+  --c-highlight:   rgba(106, 172, 222, 0.13);
+  --c-tag-bg:      rgba(106, 172, 222, 0.10);
+  --c-tag-accent:  rgba(160, 144, 204, 0.12);
 }
 
 
@@ -237,18 +239,31 @@ a:hover {
 /* ===== 7. Home: Hero ===== */
 .home-hero {
   margin: 1.5rem 0 2.5rem;
-  overflow: hidden; /* clearfix for float */
+}
+
+/* Identity block: photo + name/tagline/links as a flex row */
+.home-hero__identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .home-hero__photo {
-  float: right;
-  width: 148px;
-  height: 148px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 0.6rem;
-  margin: 0.25rem 0 1.5rem 2rem;
   border: 1px solid var(--c-border);
   flex-shrink: 0;
+}
+
+.home-hero__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .home-hero__name {
@@ -258,7 +273,26 @@ a:hover {
   line-height: 1.15;
   letter-spacing: 0.01em;
   color: var(--c-text);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.home-hero__tagline {
+  font-size: 0.88rem;
+  color: var(--c-text-muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+}
+
+/* "About" label inside hero — matches .page-section > h2 style */
+.home-hero__about-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--c-text-muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--c-border);
+  margin: 0 0 1rem;
 }
 
 .home-hero__bio {
@@ -278,6 +312,7 @@ a:hover {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.45rem;
 }
 .social-link {
@@ -285,29 +320,47 @@ a:hover {
   align-items: center;
   gap: 0.3rem;
   padding: 0.3rem 0.9rem;
-  border: 1px solid var(--c-accent);
+  border: 1px solid var(--c-border);
   border-radius: 0.4rem;
-  color: var(--c-accent);
+  color: var(--c-text-muted);
   font-family: var(--font-body);
   font-size: 0.85rem;
   text-decoration: none;
   transition: background-color var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease;
 }
 .social-link:hover {
-  background-color: var(--c-accent);
-  color: #fff;
+  border-color: var(--c-text);
+  color: var(--c-text);
   text-decoration: none;
 }
-/* CV pill: filled with primary teal to stand out */
+/* CV: slightly foregrounded — teal outline, not filled */
 .social-link--cv {
-  background-color: var(--c-primary);
   border-color: var(--c-primary);
-  color: #fff;
-  font-weight: 600;
+  color: var(--c-primary);
+  font-weight: 500;
 }
 .social-link--cv:hover {
-  background-color: transparent;
-  color: var(--c-primary);
+  background-color: var(--c-primary);
+  color: #fff;
+}
+
+/* Icon-only social buttons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--c-border);
+  border-radius: 0.4rem;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  transition: color var(--dur) ease, border-color var(--dur) ease;
+}
+.social-icon:hover {
+  border-color: var(--c-text);
+  color: var(--c-text);
+  text-decoration: none;
 }
 .social-link__note {
   font-size: 0.75em;
@@ -813,8 +866,19 @@ code {
 
 
 /* ===== 19. Back to Top ===== */
-/* Plant button — hidden on mobile (no margins to plant in) */
-.plant-btn {
+/* Separator between CV pill and icon group */
+.social-links__sep {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background: var(--c-border);
+  align-self: center;
+  margin: 0 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Plant / mountain buttons — hidden on mobile (no margins) */
+.plant-btn, .mountain-btn {
   position: fixed;
   bottom: 4.75rem;  /* sits above the back-to-top button */
   right: 1.75rem;
@@ -833,18 +897,19 @@ code {
   transition: background-color var(--dur) ease, color var(--dur) ease,
               border-color var(--dur) ease;
 }
-.plant-btn:hover {
+.plant-btn:hover, .mountain-btn:hover {
   background: var(--c-primary);
   color: #fff;
   border-color: var(--c-primary);
 }
-.plant-btn.is-planted {
+.plant-btn.is-planted, .mountain-btn.is-planted {
   background: var(--c-primary);
   color: #fff;
   border-color: var(--c-primary);
 }
+.mountain-btn { display: none; } /* shown only on personal page */
 @media (max-width: 860px) { /* hide when margins are too narrow */
-  .plant-btn { display: none; }
+  .plant-btn, .mountain-btn { display: none; }
 }
 
 .back-to-top {
@@ -914,15 +979,26 @@ code {
   /* clip (not hidden) — prevents body scroll without breaking sticky or inner scroll containers */
   body { overflow-x: clip; }
 
-  h1, .home-hero__name { font-size: 1.7rem; }
+  h1, .home-hero__name { font-size: 1.7rem; text-align: center; }
+  .home-hero__tagline { text-align: center; }
+
+  .home-hero__identity {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .home-hero__info {
+    align-items: center;
+    text-align: center;
+  }
 
   .home-hero__photo {
-    float: none;
-    display: block;
     width: 110px;
     height: 110px;
-    margin: 0 auto 1.5rem;
   }
+
+  .social-links { justify-content: center; }
 
   /* Header: keep nav + toggle on one line, never wrap */
   .site-header {
