@@ -1,286 +1,224 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+---
+layout: default
+title: Home
+description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi University.
+---
 
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74960604-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-74960604-1');
-	</script>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2R8B6NGLFC"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-2R8B6NGLFC');
-	</script>
-
-
-    <meta name="description" content="About me">
-    <meta name="author" content="Paul S. Lou">
-
-
-    <title>PSL</title>
-
-    <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Misc CSS stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
-    <link href="assets/css/site.css" rel="stylesheet">
-
-	<!-- Bootstrap Javascript  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-    <!-- Favicon stuff -->
-    <link rel="apple-touch-icon-precomposed" href="assets/images/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="assets/images/favicon-196x196.png"/>
-
-  </head>
-
-  <body>
-
-    <div id="header"></div>
-    <!-- Load header -->
-    <script>
-      $(function(){
-        $("#header").load("/header.html");
-      });
-    </script>
-
-    <!-- about me -->
-    <div class="container">
-      <div class="col-sm-12">
-          <h1>Paul S. Lou</h1>
-              <div class="img-div">
-                <img id="portrait" src="assets/images/headshot_dec2025.jpg" alt="Paul">
-              </div>
-              <p>
-                  Hi! I'm Paul.
-
-                  I am currently a postdoctoral researcher at <a href="https://rosenalon.github.io/cifra/">Bocconi University</a> working with <a href="https://www.alonrosen.net">Alon Rosen</a>.
-                  I'm interested broadly in <span class="bluehighlight">cryptography</span>.
-                  My primary research goal is understanding and using new sources of hardness
-                  to construct fundamental cryptographic primitives such as public-key encryption.
-                  I also actively work on zero-knowledge proof systems, information-theoretic cryptography, and quantum algorithms.
-
-                  <br /> <br />
-
-                  I completed my Ph.D. at UCLA under the kind and sage guidance of <a href="https://web.cs.ucla.edu/~sahai/">Amit Sahai</a>.
-                  Prior to that, I finished my undergraduate degrees
-                  majoring in computer science, mathematics, and
-                  statistics at the University of Pennsylvania where
-                  I was fortunate to work with <a href="https://cseweb.ucsd.edu/~nadiah/">Nadia Heninger</a>.
-
-                  <br /> <br />
-              <a href="/assets/CV-PSL-2025-11-14.pdf">CV</a> (Last updated: Nov.2025)
-              <div class="social-links">
-                <a class="social-link" href="https://www.linkedin.com/in/paullou/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="social-link" href="https://github.com/pslou" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="social-link" href="https://dblp.org/pid/200/2034.html" target="_blank" rel="noopener noreferrer">DBLP</a>
-                <a class="social-link" href="https://scholar.google.com/citations?user=RiHslnEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-              </div>
-              </p>
-      </div>
-
-
-      <div><hr class="fadedline"></div>
-
-      <!-- Publications, Education, Contact Me -->
-      <div class="col-sm-12">
-
-            <h1>Publications</h1>
-            <div class="card card-body bg-light frontcard">
-                <p>Authors are listed by alphabetical order.</p>
-                <ul style="list-style-type:none; padding-left:0; margin-bottom:0">
-
-                    <li>
-                        <a href="https://arxiv.org/abs/2509.07276">Quantum Advantage via Solving Multivariate Polynomials</a><br />
-                        <p style="font-size:11pt; padding-left:1em">
-                           Pierre Briaud, Itai Dinur, Riddhi Ghosal, Aayush Jain, Paul Lou, Amit Sahai. <br />
-                           SODA 2026.<br/>
-                        </p>
-                    </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2025/1984">Fully Anonymous Secret Sharing</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                        Allison Bishop, Matthew Green, Abhishek Jain, Yuval Ishai, Paul Lou.<br/ >
-                        Crypto 2025. <br />
-                        <a href="/assets/slides/CRYPTO2025_FASS_PDF.pdf">[Slides--Talk @ Crypto 2025, Invited talk @ Stanford Sep. 2025]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2025/844">Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                        Riddhi Ghosal, Aayush Jain, Paul Lou,  Amit Sahai, Neekon Vafa.<br/ >
-                        Eurocrypt 2025. <br />
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2024/1518">Witness Semantic Security</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                        Paul Lou, Nathan Manohar, Amit Sahai. <br/ >
-                        Eurocrypt 2024. <br />
-                        <a href="/assets/slides/WSS_Eurocrypt_2024_PDF.pdf">[Slides--Talk @ Eurocrypt 2024]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2023/1270">Computational Wiretap Coding from Indistinguishability Obfuscation</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                        Yuval Ishai, Aayush Jain, Paul Lou, Amit Sahai, Mark Zhandry. <br/ >
-                        Crypto 2023.<br />
-                        <a href="/assets/slides/ITC2024_Wiretap_Slides.pdf">[Slides--Talk @ Crypto 2023 & Invited Talk @ ITC 2024]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2023/1972">Hard Languages in NP&cap;coNP and NIZK Proofs from Unstructured Hardness</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                        Riddhi Ghosal, Yuval Ishai, Alexis Korb, Eyal Kushilevitz, Paul Lou, Amit Sahai.<br />
-                        STOC 2023.<br />
-                        <a href="/assets/slides/CMU_Talk_Slides_PDF.pdf">[Slides--Invited Talk @ CMU, Apr. 2024]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2022/1637">Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum iO</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                      Aayush Jain, Rachel Lin, Paul Lou, Amit Sahai.<br />
-                      Eurocrypt 2023.<br />
-                      <a href="/assets/slides/Eurocrypt2023_iOAttack_PDF_Final.pdf">[Slides--Talk @ Eurocrypt 2023]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2022/370">Efficient NIZKs from LWE via Polynomial Reconstruction and "MPC in the Head"</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                      Riddhi Ghosal, Paul Lou, Amit Sahai.<br />
-                      Asiacrypt 2022.<br />
-                      <a href="/assets/slides/AC_2022_Slides.pdf">[Slides--Talk @ Asiacrypt 2022]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://eprint.iacr.org/2022/343">Beyond the Csisz&#225;r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                      Yuval Ishai, Alexis Korb, Paul Lou, Amit Sahai.<br />
-                      Crypto 2022. <i>Invited & accepted submission to Journal of Cryptology.</i><br />
-                      <a href="/assets/slides/Wiretap-Long-Talk-PDF.pdf">[Slides--Oral Qualifying Exam @ UCLA, Nov. 2023]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://doi.org/10.1093/comjnl/bxad070">Relinearization Attack on LPN over Large Fields</a><br />
-                    <p style="font-size:11pt; padding-left:1em">
-                      Paul Lou, Amit Sahai, Varun Sivashankar.<br />
-                      CFAIL 2022 (Affiliated workshop at Crypto 2022). <i>Invited & accepted submission to The Computer Journal.</i> <br />
-                      <a href="/assets/slides/Relinearization_attacks_on_LPN_CFAIL_2022_Presentation.pdf">[Slides--Talk @ CFAIL 2022]</a>
-                    </p>
-                  </li>
-
-                  <li>
-                    <a href="https://cr.yp.to/papers/pqrsa-20170419.pdf">Post-Quantum
-                    RSA.</a><br />
-                    <p style="font-size:11pt; padding-left:1em; margin-bottom:0;">
-                      Daniel J. Bernstein, Nadia Heninger, Paul Lou, Luke Valenta.<br />
-                      PQCrypto 2017.<br />
-                    </p>
-                    <p style="font-size:11pt; padding-left:1em">
-                        press: <a href="https://www.quantamagazine.org/why-quantum-computers-might-not-break-cryptography-20170515/">[Why Quantum Computers Might Not Break Cryptography]</a>
-                    </p>
-                  </li>
-
-                </ul>
-			</div>
-            <br/>
-
-            <h1>Preprints</h1>
-            <div class="card card-body bg-light frontcard">
-                <ul style="list-style-type:none; padding-left:0; margin-bottom:0">
-
-                    <li>
-                        <a href="https://eprint.iacr.org/2021/1415">A Note on the Pseudorandomness of Low-Degree Polynomials over the Integers</a><br />
-                        <p style="font-size:11pt; padding-left:1em">
-                          Aayush Jain, Alexis Korb, Paul Lou, Amit Sahai.
-                        </p>
-                      </li>
-                    <li>
-                        <a href="https://www.medrxiv.org/content/10.1101/2020.08.06.20169839v2">Expanding COVID-19 Symptom Screening to Retail, Restaurants, and Schools by Preserving Privacy Using Relaxed Digital Signatures</a><br />
-                        <p style="font-size:11pt; padding-left:1em">
-                          Brandon Jew, Alexis Korb, Paul Lou, Jeffrey N. Chiang, Ulzee An, Amit Sahai, Eran Halperin, Eleazar Eskin.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-            <br/>
-
-            <h1>Service</h1>
-            <div class="card card-body bg-light">
-              <p style="font-size:11pt; margin-bottom:0;">
-              Reviewer for <a href="https://www.iacr.org/jofc/">Journal of Cryptology</a>. External reviewer for <a href="https://crypto.iacr.org/2022/">Crypto 2022</a>, <a href="https://tcc.iacr.org/2023/">TCC 2023</a>, <a href="https://eurocrypt.iacr.org/2024/">Eurocrypt 2024</a>, <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>, <a href="https://sp2024.ieee-security.org/">IEEE S&P 2024</a>, <a href="https://tcc.iacr.org/2024/">TCC 2024</a>, <a href="https://eurocrypt.iacr.org/2025/">Eurocrypt 2025</a>, <a href="https://acm-stoc.org/stoc2025/">STOC 2025</a>, <a href="https://crypto.iacr.org/2025/">Crypto 2025</a>. Program Committee (PC) member for <a href="https://sp2023.ieee-security.org/cfposters.html">Oakland 2023 Posters Program</a>.
-              </p>
-
-            </div>
-            <br/>
-
-
-            <h1>Teaching</h1>
-            <div class="card card-body bg-light">
-				<h6>CS-289: Advanced Topics in Cryptography (Quantum Cryptography)</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-						Spring 2023, Co-lead instructor, UCLA.
-					</p>
-                <h6>CS-181: Formal Languages and Automata</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-                        Winter 2021, Winter 2022, Winter 2024, TA, UCLA.
-                    </p>
-                <h6>CIS-556: Cryptography (Graduate-level)</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-                        Fall 2018, TA, UPenn.
-                    </p>
-                <h6>CIS-548: Operating Systems (Graduate-level)</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-                        Spring 2018, TA, UPenn.
-                    </p>
-                <h6>CIS-380: Operating Systems</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-                        Fall 2017, TA, UPenn. <br />
-                        Fall 2018, Head TA, UPenn
-                    </p>
-                <h6>CIS-262: Theory of Computation</h6>
-                    <p style="font-size:10pt; padding-left:1em">
-                        Fall 2016, TA, UPenn.
-                    </p>
-            </div>
-            <br/>
-
-            <h1>Contact me!</h1>
-            <div class="card card-body bg-light">
-            You can contact me by email: paul [DOT] lou [AT] unibocconi [dot] it
-            </div>
-      </div>
+<!-- Hero / Bio -->
+<section class="home-hero">
+  <img class="home-hero__photo" src="/assets/images/headshot_dec2025.jpg" alt="Photo of Paul S. Lou">
+  <h1 class="home-hero__name">Paul S. Lou</h1>
+  <div class="home-hero__bio">
+    <p>
+      Hi! I'm Paul. I am currently a postdoctoral researcher at
+      <a href="https://rosenalon.github.io/cifra/">Bocconi University</a>
+      working with <a href="https://www.alonrosen.net">Alon Rosen</a>.
+      I'm interested broadly in <span class="highlight-term">cryptography</span>.
+      My primary research goal is understanding and using new sources of hardness
+      to construct fundamental cryptographic primitives such as public-key encryption.
+      I also actively work on zero-knowledge proof systems, information-theoretic cryptography,
+      and quantum algorithms.
+    </p>
+    <p>
+      I completed my Ph.D. at UCLA under the kind and sage guidance of
+      <a href="https://web.cs.ucla.edu/~sahai/">Amit Sahai</a>.
+      Prior to that, I finished my undergraduate degrees majoring in computer science,
+      mathematics, and statistics at the University of Pennsylvania where I was fortunate
+      to work with <a href="https://cseweb.ucsd.edu/~nadiah/">Nadia Heninger</a>.
+    </p>
+    <div class="social-links">
+      <a class="social-link social-link--cv" href="/assets/CV-PSL-2025-11-14.pdf">CV <span class="social-link__note">Nov. 2025</span></a>
+      <a class="social-link" href="https://www.linkedin.com/in/paullou/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="social-link" href="https://github.com/pslou" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="social-link" href="https://dblp.org/pid/200/2034.html" target="_blank" rel="noopener noreferrer">DBLP</a>
+      <a class="social-link" href="https://scholar.google.com/citations?user=RiHslnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
     </div>
-  </body>
-</html>
+  </div>
+</section>
+
+<!-- Section jump nav -->
+<nav class="section-nav" aria-label="Page sections">
+  <a class="section-nav__link" href="#publications">publications</a>
+  <a class="section-nav__link" href="#preprints">preprints</a>
+  <a class="section-nav__link" href="#teaching">teaching</a>
+  <a class="section-nav__link" href="#service">service</a>
+  <a class="section-nav__link" href="#contact">contact</a>
+</nav>
+
+<!-- Publications -->
+<section class="page-section" id="publications">
+  <h2>Publications</h2>
+  <p class="section-note">Authors listed alphabetically.</p>
+  <ul class="pub-list">
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://arxiv.org/abs/2509.07276">Quantum Advantage via Solving Multivariate Polynomials</a>
+      <p class="pub-authors">Pierre Briaud, Itai Dinur, Riddhi Ghosal, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+      <p class="pub-venue">SODA 2026</p>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2025/1984">Fully Anonymous Secret Sharing</a>
+      <p class="pub-authors">Allison Bishop, Matthew Green, Abhishek Jain, Yuval Ishai, <strong class="pub-self">Paul Lou</strong></p>
+      <p class="pub-venue">Crypto 2025</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/CRYPTO2025_FASS_PDF.pdf">Slides (Crypto 2025 &amp; Stanford, Sep. 2025)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2025/844">Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN</a>
+      <p class="pub-authors">Riddhi Ghosal, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai, Neekon Vafa</p>
+      <p class="pub-venue">Eurocrypt 2025</p>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2024/1518">Witness Semantic Security</a>
+      <p class="pub-authors"><strong class="pub-self">Paul Lou</strong>, Nathan Manohar, Amit Sahai</p>
+      <p class="pub-venue">Eurocrypt 2024</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/WSS_Eurocrypt_2024_PDF.pdf">Slides (Eurocrypt 2024)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2023/1270">Computational Wiretap Coding from Indistinguishability Obfuscation</a>
+      <p class="pub-authors">Yuval Ishai, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai, Mark Zhandry</p>
+      <p class="pub-venue">Crypto 2023</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/ITC2024_Wiretap_Slides.pdf">Slides (Crypto 2023 &amp; ITC 2024)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2023/1972">Hard Languages in NP&cap;coNP and NIZK Proofs from Unstructured Hardness</a>
+      <p class="pub-authors">Riddhi Ghosal, Yuval Ishai, Alexis Korb, Eyal Kushilevitz, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+      <p class="pub-venue">STOC 2023</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/CMU_Talk_Slides_PDF.pdf">Slides (CMU, Apr. 2024)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/1637">Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum iO</a>
+      <p class="pub-authors">Aayush Jain, Rachel Lin, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+      <p class="pub-venue">Eurocrypt 2023</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/Eurocrypt2023_iOAttack_PDF_Final.pdf">Slides (Eurocrypt 2023)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/370">Efficient NIZKs from LWE via Polynomial Reconstruction and "MPC in the Head"</a>
+      <p class="pub-authors">Riddhi Ghosal, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+      <p class="pub-venue">Asiacrypt 2022</p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/AC_2022_Slides.pdf">Slides (Asiacrypt 2022)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/343">Beyond the Csisz&#225;r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation</a>
+      <p class="pub-authors">Yuval Ishai, Alexis Korb, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+      <p class="pub-venue">Crypto 2022 &mdash; <em>invited to Journal of Cryptology</em></p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/Wiretap-Long-Talk-PDF.pdf">Slides (UCLA Oral Qualifying Exam, Nov. 2023)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://doi.org/10.1093/comjnl/bxad070">Relinearization Attack on LPN over Large Fields</a>
+      <p class="pub-authors"><strong class="pub-self">Paul Lou</strong>, Amit Sahai, Varun Sivashankar</p>
+      <p class="pub-venue">CFAIL 2022 (affiliated workshop, Crypto 2022) &mdash; <em>invited to The Computer Journal</em></p>
+      <div class="pub-links">
+        <a class="pub-link" href="/assets/slides/Relinearization_attacks_on_LPN_CFAIL_2022_Presentation.pdf">Slides (CFAIL 2022)</a>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://cr.yp.to/papers/pqrsa-20170419.pdf">Post-Quantum RSA</a>
+      <p class="pub-authors">Daniel J. Bernstein, Nadia Heninger, <strong class="pub-self">Paul Lou</strong>, Luke Valenta</p>
+      <p class="pub-venue">PQCrypto 2017</p>
+      <p class="pub-note">press: <a href="https://www.quantamagazine.org/why-quantum-computers-might-not-break-cryptography-20170515/">Why Quantum Computers Might Not Break Cryptography</a> — Quanta Magazine</p>
+    </li>
+
+  </ul>
+</section>
+
+<!-- Preprints -->
+<section class="page-section" id="preprints">
+  <h2>Preprints</h2>
+  <ul class="pub-list">
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://eprint.iacr.org/2021/1415">A Note on the Pseudorandomness of Low-Degree Polynomials over the Integers</a>
+      <p class="pub-authors">Aayush Jain, Alexis Korb, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
+    </li>
+
+    <li class="pub-item">
+      <a class="pub-title" href="https://www.medrxiv.org/content/10.1101/2020.08.06.20169839v2">Expanding COVID-19 Symptom Screening to Retail, Restaurants, and Schools by Preserving Privacy Using Relaxed Digital Signatures</a>
+      <p class="pub-authors">Brandon Jew, Alexis Korb, <strong class="pub-self">Paul Lou</strong>, Jeffrey N. Chiang, Ulzee An, Amit Sahai, Eran Halperin, Eleazar Eskin</p>
+    </li>
+
+  </ul>
+</section>
+
+<!-- Service -->
+<section class="page-section" id="service">
+  <h2>Service</h2>
+  <div class="section-card">
+    <p>
+      Reviewer for <a href="https://www.iacr.org/jofc/">Journal of Cryptology</a>.
+      External reviewer for
+      <a href="https://crypto.iacr.org/2022/">Crypto 2022</a>,
+      <a href="https://tcc.iacr.org/2023/">TCC 2023</a>,
+      <a href="https://eurocrypt.iacr.org/2024/">Eurocrypt 2024</a>,
+      <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>,
+      <a href="https://sp2024.ieee-security.org/">IEEE S&amp;P 2024</a>,
+      <a href="https://tcc.iacr.org/2024/">TCC 2024</a>,
+      <a href="https://eurocrypt.iacr.org/2025/">Eurocrypt 2025</a>,
+      <a href="https://acm-stoc.org/stoc2025/">STOC 2025</a>,
+      <a href="https://crypto.iacr.org/2025/">Crypto 2025</a>.
+      Program Committee member for <a href="https://sp2023.ieee-security.org/cfposters.html">Oakland 2023 Posters Program</a>.
+    </p>
+  </div>
+</section>
+
+<!-- Teaching -->
+<section class="page-section" id="teaching">
+  <h2>Teaching</h2>
+  <ul class="teaching-list">
+    <li class="teaching-item">
+      <span class="teaching-course">CS-289: Advanced Topics in Cryptography (Quantum Cryptography)</span>
+      <span class="teaching-role">Co-lead instructor · Spring 2023 · UCLA</span>
+    </li>
+    <li class="teaching-item">
+      <span class="teaching-course">CS-181: Formal Languages and Automata</span>
+      <span class="teaching-role">TA · Winter 2021, Winter 2022, Winter 2024 · UCLA</span>
+    </li>
+    <li class="teaching-item">
+      <span class="teaching-course">CIS-556: Cryptography (graduate)</span>
+      <span class="teaching-role">TA · Fall 2018 · UPenn</span>
+    </li>
+    <li class="teaching-item">
+      <span class="teaching-course">CIS-548: Operating Systems (graduate)</span>
+      <span class="teaching-role">TA · Spring 2018 · UPenn</span>
+    </li>
+    <li class="teaching-item">
+      <span class="teaching-course">CIS-380: Operating Systems</span>
+      <span class="teaching-role">TA · Fall 2017; Head TA · Fall 2018 · UPenn</span>
+    </li>
+    <li class="teaching-item">
+      <span class="teaching-course">CIS-262: Theory of Computation</span>
+      <span class="teaching-role">TA · Fall 2016 · UPenn</span>
+    </li>
+  </ul>
+</section>
+
+<!-- Contact -->
+<section class="page-section" id="contact">
+  <h2>Contact</h2>
+  <div class="section-card">
+    <p>paul [DOT] lou [AT] unibocconi [DOT] it</p>
+  </div>
+</section>

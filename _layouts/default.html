@@ -3,30 +3,70 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.name | default: site.title }}</title>
+    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}Paul S. Lou</title>
     {% if page.description %}<meta name="description" content="{{ page.description | escape }}">{% endif %}
+    <meta name="author" content="Paul S. Lou">
+
+    <!-- Apply saved theme before first paint to avoid flash -->
+    <script>
+      (function(){
+        var t;
+        try { t = localStorage.getItem('psl-theme'); } catch(e){}
+        if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R8B6NGLFC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2R8B6NGLFC');
+    </script>
+
     <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-152x152.png">
     <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400,700|Lato:300,400,700&display=swap">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/site.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="/assets/css/main.css">
+
     {% if page.katex %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     {% endif %}
   </head>
   <body>
     <header class="site-header">
-      <nav class="site-nav">
-        <a class="site-nav__link" href="/">home</a>
-        <a class="site-nav__link" href="/notes/">notes</a>
-        <a class="site-nav__link" href="/personal.html">personal</a>
-        <a class="site-nav__link" href="/portfolio.html">hobbies</a>
-        <a class="site-nav__link" href="/blog/index">random</a>
-      </nav>
+      <div class="site-header__inner">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="site-nav__link{% if page.url == '/' %} site-nav__link--active{% endif %}" href="/">home</a>
+          <a class="site-nav__link{% if page.url contains '/notes' %} site-nav__link--active{% endif %}" href="/notes/">notes</a>
+          <a class="site-nav__link{% if page.url contains 'personal' or page.url contains 'portfolio' %} site-nav__link--active{% endif %}" href="/personal.html">personal</a>
+          <a class="site-nav__link" href="/blog/index">random</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode" type="button">
+          <span class="theme-toggle__moon" aria-hidden="true">☽</span>
+          <span class="theme-toggle__sun" aria-hidden="true">☀</span>
+        </button>
+      </div>
     </header>
-    <main class="site-main">
+
+    <main class="site-main" id="main-content">
       {{ content }}
     </main>
+
+    <footer class="site-footer">
+      <p>© {{ site.time | date: '%Y' }} Paul S. Lou · All rights reserved</p>
+    </footer>
+
+    <button class="plant-btn" id="plant-btn" aria-label="Grow plants" type="button">🌱</button>
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" type="button">↑</button>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/plants.js"></script>
+
     {% if page.katex %}
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>

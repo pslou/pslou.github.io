@@ -1,116 +1,35 @@
-<!DOCTYPE html>
-<html lang="en-US">
+---
+layout: default
+title: Hobbies
+description: Photography and ink drawings by Paul S. Lou.
+permalink: /portfolio.html
+---
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<section class="portfolio-section">
 
+  <h2 class="portfolio-section__title">ink drawings</h2>
+  <div class="portfolio-grid">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190218_ballpoint_drawing_000.jpg" alt="First ballpoint drawing">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190219_ballpoint_drawing_001.jpg" alt="Ballpoint drawing 2">
+  </div>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74960604-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+  <h2 class="portfolio-section__title">photos</h2>
+  <div class="portfolio-grid">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190307_blue_latte.jpg"       alt="Whistler blue latte">
+    <img class="portfolio-img" src="/assets/images/portfolio/20181226_isla_incahuasi.jpg"    alt="Isla Incahuasi">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190118_arthurs_choice.jpg"   alt="Whistler Arthur's Choice">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180305_hallgrimskirkja.jpg"  alt="Hallgrímskirkja">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180615_croatia_summer_school.jpg" alt="Croatia summer school chairs">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180704_tokyo_gardens.jpg"    alt="Tokyo gardens">
+  </div>
 
-	  gtag('config', 'UA-74960604-1');
-	</script>
+</section>
 
+<!-- Image modal -->
+<div id="img-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="modal-overlay__close" id="modal-close" aria-label="Close image viewer">&times;</button>
+  <img class="modal-overlay__img" id="modal-img" src="" alt="">
+  <p class="modal-overlay__caption" id="modal-caption"></p>
+</div>
 
-    <meta name="description" content="About me">
-    <meta name="author" content="Paul S. Lou">
-
-
-    <title>PSL</title>
-
-    <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Misc CSS stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
-    <link href="/assets/css/site.css" rel="stylesheet">
-
-	<!-- Bootstrap Javascript  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-    <!-- Favicon stuff -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png"/>
-
-</head>
-
-<body>
-
-    <div id="header"></div>
-    <!-- Load header -->
-    <script>
-      $(function(){
-        $("#header").load("/header.html");
-      });
-    </script>
-
-<!-- portfolio section -->
-	<div class="container">
-
-
-		<div class="row">
-			<div class="col-xs-12">
-				<h2 class="text-center">ink drawings</h2>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-4" alt="a girl's nose and mouth">
-                <img class="portfolioImg thumbnail img-responsive" id="ink001" src="assets/images/portfolio/20190218_ballpoint_drawing_000.jpg" alt="first ballpoint drawing">
-			</div>
-
-
-			<div class="col-sm-4">
-				<img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20190219_ballpoint_drawing_001.jpg" alt="ballpoint drawing 2">
-			</div>
-		</div>
-
-
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="text-center">photos</h2>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20190307_blue_latte.jpg" alt="whistler blue latte">
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20181226_isla_incahuasi.jpg" alt="isla incahuasi">
-            </div>
-            <div class="col-sm-4">
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20190118_arthurs_choice.jpg" alt="whistler arthur's choice">
-                <!--                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20181228_bolivian_highlands.jpg" alt="bolivian highlands"> -->
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20180305_hallgrimskirkja.jpg" alt="hallgrimskirkja">
-            </div>
-            <div class="col-sm-4">
-                <!-- <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20190122_home_run_blackcomb.jpg" alt="blackcomb to snowgoose"> -->
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20180615_croatia_summer_school.jpg" alt="croatia summer school chairs">
-                <img class="portfolioImg thumbnail img-responsive" src="assets/images/portfolio/20180704_tokyo_gardens.jpg" alt="tokyo gardens">
-            </div>
-        </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="img-fluid modal-content" id="myModalImg">
-        <div id="caption"></div>
-    </div>
-
-	<script type="text/javascript" src="assets/js/modal.js"></script>
-    </body>
-
-</html>
+<script src="/assets/js/modal.js"></script>

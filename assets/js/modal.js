@@ -1,26 +1,44 @@
-// create references to the modal...
-var modal = document.getElementById('myModal');
-// to all images -- note I'm using a class!
-var images = document.getElementsByClassName('portfolioImg');
-// the image in the modal
-var modalImg = document.getElementById('myModalImg');
-// and the caption in the modal
-var captionText = document.getElementById('caption');
+/* modal.js — portfolio image lightbox */
+(function () {
+  var overlay  = document.getElementById('img-modal');
+  var modalImg = document.getElementById('modal-img');
+  var caption  = document.getElementById('modal-caption');
+  var closeBtn = document.getElementById('modal-close');
 
-// Go through all of the images with our custom class
-for (var i = 0; i < images.length; i++) {
-  var img = images[i];
-  // and attach our click listener for this image.
-  img.onclick = function(evt) {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
+  if (!overlay) return;
+
+  function openModal(src, alt) {
+    modalImg.src = src;
+    modalImg.alt = alt;
+    caption.textContent = alt;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
   }
-}
 
-var span = document.getElementsByClassName("close")[0];
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    modalImg.src = '';
+  }
 
-span.onclick = function() {
-  modal.style.display = "none";
-	captionText.innerHTML = "";
-}
+  /* Click on any portfolio image */
+  document.querySelectorAll('.portfolio-img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      openModal(this.src, this.alt);
+    });
+  });
+
+  /* Close button */
+  closeBtn.addEventListener('click', closeModal);
+
+  /* Click outside the image closes modal */
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  /* Escape key closes modal */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+})();

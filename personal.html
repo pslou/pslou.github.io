@@ -1,74 +1,48 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+---
+layout: default
+title: Personal
+description: A little about Paul S. Lou outside of research — hobbies, photos, and drawings.
+permalink: /personal.html
+---
 
+<section class="page-section" style="margin-top: 1rem;">
+  <h1>About Me</h1>
+  <img
+    src="/assets/images/whistler.jpg"
+    alt="Whistler mountain in winter"
+    style="width:100%; border-radius:0.6rem; margin-bottom:1.5rem; border:1px solid var(--c-border);"
+  >
+  <p>
+    My hobbies include skiing, running, yoga, listening to podcasts,
+    drinking hot chocolate, and making a variety of oatmeal.
+    After finishing undergrad, I spent the 2018–2019 winter season
+    living and skiing in Whistler, Canada.
+  </p>
+</section>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74960604-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+<section class="portfolio-section">
+  <h2 class="portfolio-section__title">ink drawings</h2>
+  <div class="portfolio-grid">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190218_ballpoint_drawing_000.jpg" alt="First ballpoint drawing">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190219_ballpoint_drawing_001.jpg" alt="Ballpoint drawing 2">
+  </div>
 
-	  gtag('config', 'UA-74960604-1');
-	</script>
+  <h2 class="portfolio-section__title">photos</h2>
+  <div class="portfolio-grid">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190307_blue_latte.jpg"       alt="Whistler blue latte">
+    <img class="portfolio-img" src="/assets/images/portfolio/20181226_isla_incahuasi.jpg"    alt="Isla Incahuasi">
+    <img class="portfolio-img" src="/assets/images/portfolio/20190118_arthurs_choice.jpg"   alt="Whistler Arthur's Choice">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180305_hallgrimskirkja.jpg"  alt="Hallgrímskirkja">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180615_croatia_summer_school.jpg" alt="Croatia summer school chairs">
+    <img class="portfolio-img" src="/assets/images/portfolio/20180704_tokyo_gardens.jpg"    alt="Tokyo gardens">
+  </div>
+</section>
 
+<!-- Image modal -->
+<div id="img-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="modal-overlay__close" id="modal-close" aria-label="Close image viewer">&times;</button>
+  <img class="modal-overlay__img" id="modal-img" src="" alt="">
+  <p class="modal-overlay__caption" id="modal-caption"></p>
+</div>
 
-    <meta name="description" content="About me">
-    <meta name="author" content="Paul S. Lou">
-
-
-    <title>PSL</title>
-
-    <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Misc CSS stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Karla|Lato" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
-    <link href="/assets/css/site.css" rel="stylesheet">
-
-	<!-- Bootstrap Javascript  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-    <!-- Favicon stuff -->
-    <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png"/>
-  </head>
-
-  <body>
-
-    <div id="header"></div>
-    <!-- Load header -->
-    <script>
-      $(function(){
-        $("#header").load("/header.html");
-      });
-    </script>
-
-    <!-- about me -->
-    <div class="container">
-      <div class="col-sm-12">
-          <h1>about me</h1>
-              <div class="img-div">
-                <img id="landscape" src="/assets/images/whistler.jpg" alt="Image of Whistler">
-              </div>
-              <p>
-              My hobbies include skiing,
-              running, yoga, listening to podcasts,
-              drinking hot chocolate, and making a variety of oatmeal.
-              After finishing undergrad, I spent the 2018-2019 winter season living and skiing in Whistler, Canada.
-              </p>
-      </div>
-
-  </body>
-</html>
+<script src="/assets/js/modal.js"></script>
