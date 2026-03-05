@@ -480,15 +480,32 @@ a:hover {
   line-height: 1.75;
 }
 .section-card p { margin: 0; }
-.section-card + .section-card { margin-top: 0.75rem; }
-.service-card__title {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
+
+/* Service definition list — labeled rows inside one card */
+.service-list { margin: 0; padding: 0; }
+.service-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--c-border);
+  align-items: baseline;
+}
+.service-item:first-child { padding-top: 0; border-top: none; }
+.service-item:last-child  { padding-bottom: 0; }
+.service-item dt {
+  flex: 0 0 9.5rem;
+  font-size: 0.76rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--c-text-muted);
-  margin: 0 0 0.4rem;
+  padding-top: 0.15rem;
+}
+.service-item dd {
+  margin: 0;
+  flex: 1;
+  font-size: 0.93rem;
+  line-height: 1.7;
 }
 
 .teaching-list {
