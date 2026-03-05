@@ -480,6 +480,16 @@ a:hover {
   line-height: 1.75;
 }
 .section-card p { margin: 0; }
+.section-card + .section-card { margin-top: 0.75rem; }
+.service-card__title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-text-muted);
+  margin: 0 0 0.4rem;
+}
 
 .teaching-list {
   list-style: none;
@@ -909,7 +919,7 @@ code {
 }
 .mountain-btn { display: none; } /* shown only on personal page */
 @media (max-width: 860px) { /* hide when margins are too narrow */
-  .plant-btn, .mountain-btn { display: none; }
+  .plant-btn, .mountain-btn { display: none !important; }
 }
 
 .back-to-top {

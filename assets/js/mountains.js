@@ -20,7 +20,7 @@
       return '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="58" viewBox="0 0 44 58">'
         + '<path d="M0,58 L4,48 L7,52 L12,38 L23,5 L34,38 L39,52 L42,48 L44,58 Z"'
         + ' fill="' + r + '"/>'
-        + '<path d="M23,5 L33,23 L29,21 L23,27 L17,21 L13,23 Z"'
+        + '<path d="M23,5 L29,24 L26,22 L23,27 L20,22 L17,24 Z"'
         + ' fill="' + s + '"/>'
         + '</svg>';
     },
@@ -31,12 +31,12 @@
         /* back mountain (right, faded) */
         + '<path d="M14,62 L17,52 L20,56 L26,42 L39,13 L51,42 L54,56 L57,52 L58,62 Z"'
         + ' fill="' + r2 + '" opacity="0.55"/>'
-        + '<path d="M39,13 L48,30 L45,28 L39,34 L33,28 L30,30 Z"'
+        + '<path d="M39,13 L46,30 L43,28 L39,34 L35,28 L31,30 Z"'
         + ' fill="' + s + '" opacity="0.60"/>'
         /* front mountain (left) */
         + '<path d="M0,62 L3,52 L6,56 L11,42 L22,8 L33,42 L38,56 L41,52 L44,62 Z"'
         + ' fill="' + r + '"/>'
-        + '<path d="M22,8 L31,24 L28,22 L22,28 L16,22 L13,24 Z"'
+        + '<path d="M22,8 L28,26 L25,24 L22,29 L19,24 L16,26 Z"'
         + ' fill="' + s + '"/>'
         + '</svg>';
     },
