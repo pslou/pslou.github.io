@@ -67,6 +67,10 @@
     <button class="back-to-top"  id="back-to-top"  aria-label="Back to top"    type="button">↑</button>
     <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/plants.js"></script>
+    {% if site.data.coauthors %}
+    <script>var PSL_COAUTHORS = {{ site.data.coauthors | jsonify }};</script>
+    <script src="/assets/js/coauthors.js"></script>
+    {% endif %}
 
     {% if page.katex %}
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
