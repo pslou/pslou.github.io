@@ -392,7 +392,28 @@ a:hover {
 }
 
 
-/* ===== 9. Publications ===== */
+/* ===== 9. News + Publications ===== */
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.3rem;
+}
+.news-flag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--c-primary);
+}
+.news-date {
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  color: var(--c-text-muted);
+}
+
+
 .pub-list {
   list-style: none;
   padding: 0;
