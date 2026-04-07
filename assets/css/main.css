@@ -398,6 +398,7 @@ a:hover {
   align-items: center;
   gap: 0.6rem;
   margin: 0 0 0.3rem;
+  padding: 0;
 }
 .news-flag {
   font-size: 0.72rem;
