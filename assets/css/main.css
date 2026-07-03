@@ -861,6 +861,29 @@ code {
 
 
 /* ===== 17. Portfolio / Hobbies ===== */
+.personal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.personal-list li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.4rem;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--c-text);
+}
+.personal-list li:first-child { padding-top: 0; }
+.personal-list li:last-child  { border-bottom: none; }
+.personal-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0.2rem;
+  color: var(--c-text-muted);
+  font-size: 1.1rem;
+}
+
 .portfolio-section {
   margin-top: 2rem;
 }
