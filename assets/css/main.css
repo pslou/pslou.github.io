@@ -455,7 +455,7 @@ ol.pub-list .pub-item::before {
   font-family: var(--font-display);
   font-style: normal;
   line-height: 1.5;
-  transform: translateY(-0.08em);
+  transform: translateY(-0.1em);
   color: var(--c-text-muted);
 }
 ol.pub-list .pub-item:first-child::before {
