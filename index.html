@@ -68,6 +68,7 @@ description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi 
   <a class="section-nav__link" href="#news">news</a>
   <a class="section-nav__link" href="#publications">publications</a>
   <a class="section-nav__link" href="#preprints">preprints</a>
+  <a class="section-nav__link" href="#talks">talks</a>
   <a class="section-nav__link" href="#service">service</a>
   <a class="section-nav__link" href="#teaching">teaching</a>
 </nav>
@@ -75,7 +76,15 @@ description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi 
 <!-- News -->
 <section class="page-section" id="news">
   <h2>New &amp; News</h2>
+  <p class="section-note">Authors listed alphabetically.</p>
   <ul class="pub-list">
+
+    <li class="pub-item">
+      <div class="news-meta"><span class="news-flag">✦ new</span><time class="news-date">30 Aug. 2026</time></div>
+      <a class="pub-title" href="https://eprint.iacr.org/2026/1829">Decomposed LWE is Equivalent to Succinct LWE</a>
+      <p class="pub-authors">Damiano Abram, Gal Arnon, Valerio Cini, <strong class="pub-self">Paul Lou</strong>, Giulio Malavolta, Lawrence Roy</p>
+      <p class="pub-venue">Preprint</p>
+    </li>
 
     <li class="pub-item">
       <p class="news-body"><span class="news-flag">✦ new</span> <time class="news-date">3 Jul. 2026</time> · Our work <a href="https://arxiv.org/pdf/2604.04188v1">Expanders Meet Reed-Muller: Easy Instances of Noisy k-XOR</a> was accepted to <strong>FOCS 2026</strong>!</p>
@@ -96,93 +105,106 @@ description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi 
       <p class="pub-venue">FOCS 2026</p>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-quantum-adv">
       <a class="pub-title" href="https://arxiv.org/abs/2509.07276">Quantum Advantage via Solving Multivariate Polynomials</a>
       <p class="pub-authors">Pierre Briaud, Itai Dinur, Riddhi Ghosal, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
       <p class="pub-venue">SODA 2026</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/UTAustin_QuantumAdvMQ.pdf">Slides (UT Austin, Dec. 2025)</a>
+        <a class="pub-link" href="#talk-quantum-adv">Talk at UT Austin</a>
+        <a class="pub-link" href="/assets/slides/UTAustin_QuantumAdvMQ.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-fass">
       <a class="pub-title" href="https://eprint.iacr.org/2025/1984">Fully Anonymous Secret Sharing</a>
       <p class="pub-authors">Allison Bishop, Matthew Green, Abhishek Jain, Yuval Ishai, <strong class="pub-self">Paul Lou</strong></p>
       <p class="pub-venue">Crypto 2025</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/CRYPTO2025_FASS_PDF.pdf">Slides (Crypto 2025 &amp; Stanford, Sep. 2025)</a>
+        <a class="pub-link" href="#talk-fass">Talk at Crypto 2025</a>
+        <a class="pub-link" href="#talk-fass">Talk at Stanford</a>
+        <a class="pub-link" href="/assets/slides/CRYPTO2025_FASS_PDF.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-pq-pke">
       <a class="pub-title" href="https://eprint.iacr.org/2025/844">Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN</a>
       <p class="pub-authors">Riddhi Ghosal, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai, Neekon Vafa</p>
       <p class="pub-venue">Eurocrypt 2025</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/PhD_Thesis_Slides_FINAL.pdf">Part of Ph.D. Defense Slides (UCLA, May 2025)</a>
+        <a class="pub-link" href="#talk-pq-pke">Ph.D. Defense</a>
+        <a class="pub-link" href="/assets/slides/PhD_Thesis_Slides_FINAL.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-wss">
       <a class="pub-title" href="https://eprint.iacr.org/2024/1518">Witness Semantic Security</a>
       <p class="pub-authors"><strong class="pub-self">Paul Lou</strong>, Nathan Manohar, Amit Sahai</p>
       <p class="pub-venue">Eurocrypt 2024</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/WSS_Eurocrypt_2024_PDF.pdf">Slides (Eurocrypt 2024)</a>
+        <a class="pub-link" href="#talk-wss">Talk at Eurocrypt 2024</a>
+        <a class="pub-link" href="/assets/slides/WSS_Eurocrypt_2024_PDF.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-wiretap-comp">
       <a class="pub-title" href="https://eprint.iacr.org/2023/1270">Computational Wiretap Coding from Indistinguishability Obfuscation</a>
       <p class="pub-authors">Yuval Ishai, Aayush Jain, <strong class="pub-self">Paul Lou</strong>, Amit Sahai, Mark Zhandry</p>
       <p class="pub-venue">Crypto 2023</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/ITC2024_Wiretap_Slides.pdf">Slides (Crypto 2023 &amp; ITC 2024)</a>
+        <a class="pub-link" href="#talk-wiretap-comp">Talk at Simons Institute</a>
+        <a class="pub-link" href="#talk-wiretap-comp">Talk at ITC 2024</a>
+        <a class="pub-link" href="#talk-wiretap-comp">Talk at Crypto 2023</a>
+        <a class="pub-link" href="/assets/slides/ITC2024_Wiretap_Slides.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-hard-lang">
       <a class="pub-title" href="https://eprint.iacr.org/2023/1972">Hard Languages in NP&cap;coNP and NIZK Proofs from Unstructured Hardness</a>
       <p class="pub-authors">Riddhi Ghosal, Yuval Ishai, Alexis Korb, Eyal Kushilevitz, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
       <p class="pub-venue">STOC 2023</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/CMU_Talk_Slides_PDF.pdf">Slides (CMU, Apr. 2024)</a>
+        <a class="pub-link" href="#talk-hard-lang">Talk at CMU</a>
+        <a class="pub-link" href="/assets/slides/CMU_Talk_Slides_PDF.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-io-attack">
       <a class="pub-title" href="https://eprint.iacr.org/2022/1637">Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum iO</a>
       <p class="pub-authors">Aayush Jain, Rachel Lin, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
       <p class="pub-venue">Eurocrypt 2023</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/Eurocrypt2023_iOAttack_PDF_Final.pdf">Slides (Eurocrypt 2023)</a>
+        <a class="pub-link" href="#talk-io-attack">Talk at Eurocrypt 2023</a>
+        <a class="pub-link" href="/assets/slides/Eurocrypt2023_iOAttack_PDF_Final.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-nizks-lwe">
       <a class="pub-title" href="https://eprint.iacr.org/2022/370">Efficient NIZKs from LWE via Polynomial Reconstruction and "MPC in the Head"</a>
       <p class="pub-authors">Riddhi Ghosal, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
       <p class="pub-venue">Asiacrypt 2022</p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/AC_2022_Slides.pdf">Slides (Asiacrypt 2022)</a>
+        <a class="pub-link" href="#talk-nizks-lwe">Talk at Asiacrypt 2022</a>
+        <a class="pub-link" href="/assets/slides/AC_2022_Slides.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-wiretap-best">
       <a class="pub-title" href="https://eprint.iacr.org/2022/343">Beyond the Csisz&#225;r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation</a>
       <p class="pub-authors">Yuval Ishai, Alexis Korb, <strong class="pub-self">Paul Lou</strong>, Amit Sahai</p>
       <p class="pub-venue">Crypto 2022 &mdash; <em>invited to Journal of Cryptology</em></p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/Wiretap-Long-Talk-PDF.pdf">Slides (UCLA Oral Qualifying Exam, Nov. 2023)</a>
+        <a class="pub-link" href="#talk-wiretap-best">UCLA Oral Qualifying Exam</a>
+        <a class="pub-link" href="/assets/slides/Wiretap-Long-Talk-PDF.pdf">Slides</a>
       </div>
     </li>
 
-    <li class="pub-item">
+    <li class="pub-item" id="pub-relinear">
       <a class="pub-title" href="https://doi.org/10.1093/comjnl/bxad070">Relinearization Attack on LPN over Large Fields</a>
       <p class="pub-authors"><strong class="pub-self">Paul Lou</strong>, Amit Sahai, Varun Sivashankar</p>
       <p class="pub-venue">CFAIL 2022 (affiliated workshop, Crypto 2022) &mdash; <em>invited to The Computer Journal</em></p>
       <div class="pub-links">
-        <a class="pub-link" href="/assets/slides/Relinearization_attacks_on_LPN_CFAIL_2022_Presentation.pdf">Slides (CFAIL 2022)</a>
+        <a class="pub-link" href="#talk-relinear">Talk at CFAIL 2022</a>
+        <a class="pub-link" href="/assets/slides/Relinearization_attacks_on_LPN_CFAIL_2022_Presentation.pdf">Slides</a>
       </div>
     </li>
 
@@ -194,6 +216,10 @@ description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi 
     </li>
 
   </ol>
+  <script>
+    var ol = document.currentScript.previousElementSibling;
+    ol.style.counterReset = 'pub-n ' + (ol.querySelectorAll(':scope > .pub-item').length + 1);
+  </script>
 </section>
 
 <!-- Preprints -->
@@ -209,6 +235,71 @@ description: Paul S. Lou — postdoctoral researcher in cryptography at Bocconi 
     <li class="pub-item">
       <a class="pub-title" href="https://www.medrxiv.org/content/10.1101/2020.08.06.20169839v2">Expanding COVID-19 Symptom Screening to Retail, Restaurants, and Schools by Preserving Privacy Using Relaxed Digital Signatures</a>
       <p class="pub-authors">Brandon Jew, Alexis Korb, <strong class="pub-self">Paul Lou</strong>, Jeffrey N. Chiang, Ulzee An, Amit Sahai, Eran Halperin, Eleazar Eskin</p>
+    </li>
+
+  </ul>
+</section>
+
+<!-- Talks -->
+<section class="page-section" id="talks">
+  <h2>Talks</h2>
+  <ul class="pub-list">
+
+    <li class="pub-item" id="talk-quantum-adv">
+      <a class="pub-title" href="https://arxiv.org/abs/2509.07276">Quantum Advantage via Solving Multivariate Polynomials</a>
+      <ul class="talk-venues"><li>UT Austin · Dec. 2025 · <a class="talk-back" href="/assets/slides/UTAustin_QuantumAdvMQ.pdf">slides</a> · <a class="talk-back" href="#pub-quantum-adv">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-fass">
+      <a class="pub-title" href="https://eprint.iacr.org/2025/1984">Fully Anonymous Secret Sharing</a>
+      <ul class="talk-venues">
+        <li>Crypto 2025</li>
+        <li>Stanford · Sep. 2025 · <a class="talk-back" href="/assets/slides/CRYPTO2025_FASS_PDF.pdf">slides</a> · <a class="talk-back" href="#pub-fass">↑ pub</a></li>
+      </ul>
+    </li>
+
+    <li class="pub-item" id="talk-pq-pke">
+      <a class="pub-title" href="https://eprint.iacr.org/2025/844">Ph.D. Thesis Defense</a>
+      <ul class="talk-venues"><li>UCLA · May 2025 · <a class="talk-back" href="/assets/slides/PhD_Thesis_Slides_FINAL.pdf">slides</a> · <a class="talk-back" href="#pub-pq-pke">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-wss">
+      <a class="pub-title" href="https://eprint.iacr.org/2024/1518">Witness Semantic Security</a>
+      <ul class="talk-venues"><li>Eurocrypt 2024 · <a class="talk-back" href="/assets/slides/WSS_Eurocrypt_2024_PDF.pdf">slides</a> · <a class="talk-back" href="#pub-wss">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-wiretap-comp">
+      <a class="pub-title" href="https://eprint.iacr.org/2023/1270">Computational Wiretap Coding from Indistinguishability Obfuscation</a>
+      <ul class="talk-venues">
+        <li>Simons Institute Summer 2025</li>
+        <li>ITC 2024</li>
+        <li>Crypto 2023 · <a class="talk-back" href="/assets/slides/ITC2024_Wiretap_Slides.pdf">slides</a> · <a class="talk-back" href="#pub-wiretap-comp">↑ pub</a></li>
+      </ul>
+    </li>
+
+    <li class="pub-item" id="talk-hard-lang">
+      <a class="pub-title" href="https://eprint.iacr.org/2023/1972">Hard Languages in NP&cap;coNP and NIZK Proofs from Unstructured Hardness</a>
+      <ul class="talk-venues"><li>CMU · Apr. 2024 · <a class="talk-back" href="/assets/slides/CMU_Talk_Slides_PDF.pdf">slides</a> · <a class="talk-back" href="#pub-hard-lang">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-wiretap-best">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/343">Beyond the Csisz&#225;r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation</a>
+      <ul class="talk-venues"><li>UCLA Oral Qualifying Exam · Nov. 2023 · <a class="talk-back" href="/assets/slides/Wiretap-Long-Talk-PDF.pdf">slides</a> · <a class="talk-back" href="#pub-wiretap-best">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-io-attack">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/1637">Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum iO</a>
+      <ul class="talk-venues"><li>Eurocrypt 2023 · <a class="talk-back" href="/assets/slides/Eurocrypt2023_iOAttack_PDF_Final.pdf">slides</a> · <a class="talk-back" href="#pub-io-attack">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-nizks-lwe">
+      <a class="pub-title" href="https://eprint.iacr.org/2022/370">Efficient NIZKs from LWE via Polynomial Reconstruction and &#8220;MPC in the Head&#8221;</a>
+      <ul class="talk-venues"><li>Asiacrypt 2022 · <a class="talk-back" href="/assets/slides/AC_2022_Slides.pdf">slides</a> · <a class="talk-back" href="#pub-nizks-lwe">↑ pub</a></li></ul>
+    </li>
+
+    <li class="pub-item" id="talk-relinear">
+      <a class="pub-title" href="https://doi.org/10.1093/comjnl/bxad070">Relinearization Attack on LPN over Large Fields</a>
+      <ul class="talk-venues"><li>CFAIL 2022 · <a class="talk-back" href="/assets/slides/Relinearization_attacks_on_LPN_CFAIL_2022_Presentation.pdf">slides</a> · <a class="talk-back" href="#pub-relinear">↑ pub</a></li></ul>
     </li>
 
   </ul>

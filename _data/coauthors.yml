@@ -3,6 +3,16 @@
 # Names must match exactly as written in the pub-authors lines in index.html.
 # Leave url empty to skip linking for now.
 
+- name: "Damiano Abram"
+  url: "https://damianoabram.github.io/"
+- name: "Gal Arnon"
+  url: "https://galarnon42.github.io/"
+- name: "Valerio Cini"
+  url: "https://sites.google.com/view/valeriocini/home"
+- name: "Giulio Malavolta"
+  url: "https://sites.google.com/view/giuliomalavolta/"
+- name: "Lawrence Roy"
+  url: "https://ldr709.gitlab.io/"
 - name: "Allison Bishop"
   url: "https://www.thecomputersciencecomedian.com/"
 - name: "Aayush Jain"

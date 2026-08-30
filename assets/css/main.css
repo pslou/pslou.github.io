@@ -283,15 +283,13 @@ a:hover {
   margin: 0 0 1rem;
 }
 
-/* "About" label inside hero — matches .page-section > h2 style */
+/* "About" label inside hero */
 .home-hero__about-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  color: var(--c-text-muted);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--c-border);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--c-text);
   margin: 0 0 1rem;
 }
 
@@ -372,15 +370,15 @@ a:hover {
 .page-section {
   margin-top: 2.75rem;
   scroll-margin-top: 5rem; /* breathing room below sticky header */
+  border-top: 1px solid var(--c-border);
+  padding-top: 2rem;
 }
 .page-section > h2 {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  color: var(--c-text-muted);
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--c-border);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--c-text);
   margin-bottom: 1.25rem;
 }
 
@@ -443,9 +441,10 @@ ol.pub-list {
 ol.pub-list .pub-item {
   position: relative;
   padding-left: 2.5rem;
+  counter-increment: pub-n -1;
 }
 ol.pub-list .pub-item::before {
-  content: counter(list-item);
+  content: counter(pub-n);
   position: absolute;
   left: 0;
   top: 1rem;
@@ -464,10 +463,8 @@ ol.pub-list .pub-item:first-child::before {
 
 .pub-item {
   padding: 1rem 0;
-  border-bottom: 1px solid var(--c-border);
 }
 .pub-item:first-child { padding-top: 0; }
-.pub-item:last-child  { border-bottom: none; }
 
 .pub-title {
   font-family: var(--font-sans);
@@ -502,6 +499,37 @@ ol.pub-list .pub-item:first-child::before {
   font-weight: 600;
   color: var(--c-primary);
   margin: 0 0 0.3rem;
+}
+.talk-venues {
+  list-style: none;
+  padding: 0;
+  margin: 0.15rem 0 0;
+}
+.talk-venues li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-primary);
+  line-height: 1.6;
+}
+.talk-venues li::before {
+  content: "❀";
+  position: absolute;
+  left: 0;
+  font-weight: 400;
+  color: var(--c-text-muted);
+}
+
+.talk-back {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--c-text-muted);
+  text-decoration: none;
+}
+.talk-back:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .pub-links {
@@ -578,9 +606,7 @@ ol.pub-list .pub-item:first-child::before {
 }
 .teaching-item {
   padding: 0.65rem 0;
-  border-bottom: 1px solid var(--c-border);
 }
-.teaching-item:last-child { border-bottom: none; }
 
 .teaching-course {
   font-family: var(--font-sans);
