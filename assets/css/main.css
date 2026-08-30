@@ -370,6 +370,8 @@ a:hover {
 .page-section {
   margin-top: 2.75rem;
   scroll-margin-top: 5rem; /* breathing room below sticky header */
+}
+.page-section + .page-section {
   border-top: 1px solid var(--c-border);
   padding-top: 2rem;
 }
