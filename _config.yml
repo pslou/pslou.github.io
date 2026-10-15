@@ -23,6 +23,7 @@ kramdown:
       line_numbers: false
 excerpt_separator: '<!--more-->'
 exclude:
+  - cv
   - node_modules
   - package.json
   - package-lock.json
