@@ -4,3 +4,5 @@ _site/
 # Track the main CV source; keep drafts, backups, and build output local.
 /cv/*
 !/cv/paul_cv.tex
+# Retired CV PDF retained only as a local copy.
+/assets/CV-PSL-2025-11-14.pdf
