@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \definecolor{Ink}{HTML}{242124}
 \definecolor{Accent}{HTML}{6A2733}
+\definecolor{Journal}{HTML}{0072B2}
 \definecolor{Secondary}{HTML}{505050}
 \definecolor{Rule}{HTML}{BBA6AC}
 \hypersetup{colorlinks=true,urlcolor=Accent,linkcolor=Accent,
@@ -43,6 +44,7 @@
   {\small\color{Secondary} #2 #4\par}\vspace{6pt}}
 \newlist{papers}{description}{1}
 \setlist[papers]{font=\normalfont\small\color{Secondary},leftmargin=22pt,labelwidth=18pt,labelsep=4pt,itemsep=5pt,parsep=0pt,topsep=2pt,partopsep=0pt,style=multiline}
+\newcommand{\journalpaperlabel}[2]{\parbox[t]{\labelwidth}{\raggedright#1\\\textcolor{Journal}{#2}}}
 % Index, title, link, authors, venue/status, optional note.
 \newcommand{\paper}[6]{%
   \item[#1] \begin{minipage}[t]{\linewidth}\raggedright
@@ -154,14 +156,14 @@ B.S. in Economics, concentration in Statistics. The Wharton School.\par
   {https://eprint.iacr.org/2022/370}
   {Riddhi Ghosal, \me, Amit Sahai.}
   {Asiacrypt 2022\corerank{1243}{A}}{}
-\paper{P3}{Beyond the Csisz{\'a}r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation}
+\paper{\journalpaperlabel{P3}{J2}}{Beyond the Csisz{\'a}r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation}
   {https://eprint.iacr.org/2022/343}
   {Yuval Ishai, Alexis Korb, \me, Amit Sahai.}
-  {Crypto 2022\corerank{94}{A*}}{ Invited and accepted submission to \textit{Journal of Cryptology}.}
-\paper{P2}{Relinearization Attack on LPN over Large Fields}
+  {Crypto 2022\corerank{94}{A*}}{ Invited and accepted submission to \textcolor{Journal}{\textit{Journal of Cryptology}}.}
+\paper{\journalpaperlabel{P2}{J1}}{Relinearization Attack on LPN over Large Fields}
   {https://doi.org/10.1093/comjnl/bxad070}
   {\me, Amit Sahai, Varun Sivashankar.}
-  {CFAIL 2022\corenotlisted}{ Crypto-affiliated workshop. Invited and accepted submission to a special edition of \textit{The Computer Journal}.}
+  {CFAIL 2022\corenotlisted}{ Crypto-affiliated workshop. Invited and accepted submission to a special edition of \textcolor{Journal}{\textit{The Computer Journal}}.}
 \paper{P1}{Post-quantum RSA}
   {https://eprint.iacr.org/2017/351}
   {Daniel J. Bernstein, Nadia Heninger, \me, Luke Valenta.}
