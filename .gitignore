@@ -1,4 +1,6 @@
 _site/
 **.swp
 **.DS_Store
-cv/
+# Track the main CV source; keep drafts, backups, and build output local.
+/cv/*
+!/cv/paul_cv.tex

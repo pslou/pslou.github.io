@@ -1,0 +1,236 @@
+% Main research CV. Website PDF: assets/CV-PSL-2026-10-15.pdf.
+% Build from the repository root: latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=/private/tmp/pslou-cv-main cv/paul_cv.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newpxtext}
+\usepackage{microtype}
+\usepackage[a4paper,margin=20mm,footskip=9mm]{geometry}
+\usepackage{amsmath,enumitem,needspace,titlesec,fancyhdr,lastpage,xcolor}
+\usepackage{newpxmath}
+\usepackage{xurl}
+\usepackage{hyperref}
+\definecolor{Ink}{HTML}{242124}
+\definecolor{Accent}{HTML}{6A2733}
+\definecolor{Secondary}{HTML}{505050}
+\definecolor{Rule}{HTML}{BBA6AC}
+\hypersetup{colorlinks=true,urlcolor=Accent,linkcolor=Accent,
+  pdftitle={Paul S. Lou - Research CV},pdfauthor={Paul S. Lou}}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pdfinterwordspaceon
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\titleformat{\section}{\fontsize{11.5}{14}\selectfont\scshape\bfseries\color{Accent}\lsstyle}{}{0pt}{}[\vspace{3pt}{\color{Rule}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{12pt}{7pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\footnotesize\color{Secondary} Paul S. Lou}
+\fancyfoot[R]{\footnotesize\color{Secondary} October 2026\enspace\textbar\enspace\thepage/\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\me}{\textbf{Paul Lou}}
+% Current venue rankings from the official ICORE2026 edition.
+\newcommand{\corerank}[2]{\nobreak\hspace{0.45em}{\upshape\fontsize{9}{11}\selectfont\href{https://portal.core.edu.au/conf-ranks/#1/}{[CORE #2]}}}
+% CFAIL has no entry in the complete ICORE2026 export.
+\newcommand{\corenotlisted}{\nobreak\hspace{0.45em}{\upshape\fontsize{9}{11}\selectfont[CORE: not listed]}}
+\newcommand{\role}[4]{%
+  \Needspace{3\baselineskip}%
+  \textbf{#1}\hfill{\small\itshape\color{Secondary}#3}\par
+  {\small\color{Secondary} #2 #4\par}\vspace{6pt}}
+\newlist{papers}{description}{1}
+\setlist[papers]{font=\normalfont\small\color{Secondary},leftmargin=22pt,labelwidth=18pt,labelsep=4pt,itemsep=5pt,parsep=0pt,topsep=2pt,partopsep=0pt,style=multiline}
+% Index, title, link, authors, venue/status, optional note.
+\newcommand{\paper}[6]{%
+  \item[#1] \begin{minipage}[t]{\linewidth}\raggedright
+  {\bfseries\href{#3}{#2}}\par
+  {\fontsize{10}{12}\selectfont #4\par}
+  {\fontsize{10}{12}\selectfont
+    {\itshape\color{Secondary}#5}\enspace\textcolor{Rule}{\textbar}\enspace\url{#3}\par
+    \if\relax\detokenize{#6}\relax\else {\color{Secondary}#6\par}\fi}
+  \end{minipage}}
+\newcommand{\talk}[2]{%
+  \item \begin{minipage}[t]{\linewidth}\raggedright
+    #1\par
+    {\fontsize{10}{12}\selectfont\color{Secondary}\setlength{\leftskip}{9pt}#2\par}
+  \end{minipage}}
+\newcommand{\category}[2]{\textit{#1}\enspace #2\par}
+\newlist{details}{description}{1}
+\setlist[details]{font=\normalfont\itshape\color{Secondary},leftmargin=8em,labelwidth=7em,labelsep=1em,itemsep=6pt,parsep=0pt,topsep=0pt,partopsep=0pt,style=multiline}
+
+\begin{document}
+\fontsize{11}{13.2}\selectfont\color{Ink}
+
+{\fontsize{28}{32}\selectfont\color{Accent}Paul S. Lou}\par
+\vspace{3pt}
+{\fontsize{11.5}{14}\selectfont Postdoctoral Researcher\enspace\textbar\enspace Bocconi University}\par
+\vspace{5pt}
+{\small
+\href{mailto:paul.lou@unibocconi.it}{paul.lou@unibocconi.it}\enspace\textbar\enspace
+\href{https://paullou.me/}{paullou.me}\enspace\textbar\enspace
+\href{https://scholar.google.com/citations?user=RiHslnEAAAAJ}{Google Scholar}\enspace\textbar\enspace
+\href{https://github.com/pslou}{GitHub}}
+\par\vspace{7pt}{\color{Accent}\hrule height 0.7pt}\vspace{1pt}
+
+\section{Interests}
+{\raggedright\hyphenpenalty=10000 AI safety; LLM reasoning; inference; theoretical and applied cryptography: public-key encryption, zero-knowledge proof systems, new hardness assumptions; information theory; quantum algorithms.\par}
+
+\section{Research Experience}
+\role{Bocconi University}{Postdoctoral Researcher}{Sep. 2025--present}{with Dr.~Alon Rosen.}
+\role{NTT Research}{Research Intern}{Sep.--Dec. 2023}{with Dr.~Abhishek Jain.}
+\role{Carnegie Mellon University}{Visiting Scholar}{Oct. 2022--Jan. 2023}{with Dr.~Aayush Jain.}
+\role{Simons Institute for the Theory of Computing}{Visiting Graduate Student}{May--Jun. 2022}{for summer cluster: ``Lattices and Beyond.''}
+\role{University of Pennsylvania}{Undergraduate Researcher}{May 2016--Dec. 2018}{with Dr.~Nadia Heninger.}
+
+\section{Education}
+\textbf{University of California, Los Angeles}\hfill{\small\itshape\color{Secondary}2019--May 2025}\par
+Doctor of Philosophy in Computer Science.\par
+{\small\color{Secondary} Advised by Dr.~Amit Sahai.}\par\vspace{5pt}
+\textbf{University of Pennsylvania}\hfill{\small\itshape\color{Secondary}Dec. 2018}\par
+Management \& Technology Dual Degree Program:\par
+B.S.E. in Mathematics and Computer Science. School of Engineering and Applied Sciences.\par
+{\small\color{Secondary} Advised by Dr.~Nadia Heninger.}\par
+B.S. in Economics, concentration in Statistics. The Wharton School.\par
+
+\Needspace{7\baselineskip}
+\vspace{6pt}
+{\small\color{Secondary}*All authors listed by alphabetical order, as is usual in cryptographic research.}\par
+\titlespacing*{\section}{0pt}{6pt}{7pt}
+\section{In Submission*}
+\titlespacing*{\section}{0pt}{12pt}{7pt}
+\begin{papers}
+\paper{S3}{Worst-Case Hardness for Succinct and Decomposed Learning with Errors}
+  {https://eprint.iacr.org/2026/2443}
+  {Damiano Abram, Gal Arnon, Valerio Cini, \me, Giulio Malavolta, Lawrence Roy.}
+  {2026}{\textit{Subsumes \href{https://eprint.iacr.org/2026/1829}{Decomposed LWE is Equivalent to Succinct LWE}.}}
+\paper{S2}{Limitations on Autoregressive Token Generation via Sequential Sampling}
+  {https://arxiv.org/abs/2610.14615}
+  {Gal Arnon, Andrej Bogdanov, \me, Giulio Malavolta, Alon Rosen, Lorenzo Taschin.}
+  {2026}{}
+\paper{S1}{Post-Quantum PKE and More from a Noisy Unstructured Linear Algebraic Assumption: Beyond LWE and LPN}
+  {https://eprint.iacr.org/2026/2113}
+  {Riddhi Ghosal, \me, Amit Sahai.}
+  {2026}{}
+\end{papers}
+
+\section{Publications*}
+\begin{papers}
+\paper{P12}{Expanders Meet Reed--Muller: Easy Instances of Noisy $k$-XOR}
+  {https://arxiv.org/abs/2604.04188}
+  {Jaros{\l}aw B{\l}asiok, \me, Alon Rosen, Madhu Sudan.}
+  {FOCS 2026\corerank{745}{A*}}{}
+\paper{P11}{Quantum Advantage via Solving Multivariate Polynomials}
+  {https://arxiv.org/abs/2509.07276}
+  {Pierre Briaud, Itai Dinur, Riddhi Ghosal, Aayush Jain, \me, Amit Sahai.}
+  {SODA 2026\corerank{80}{A*}}{}
+\paper{P10}{Fully Anonymous Secret Sharing}
+  {https://eprint.iacr.org/2025/1984}
+  {Allison Bishop, Matthew Green, Yuval Ishai, Abhishek Jain, \me.}
+  {Crypto 2025\corerank{94}{A*}}{}
+\paper{P9}{Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN}
+  {https://eprint.iacr.org/2025/844}
+  {Riddhi Ghosal, Aayush Jain, \me, Amit Sahai, Neekon Vafa.}
+  {Eurocrypt 2025\corerank{1242}{A*}}{}
+\paper{P8}{Witness Semantic Security}
+  {https://eprint.iacr.org/2024/1518}
+  {\me, Nathan Manohar, Amit Sahai.}
+  {Eurocrypt 2024\corerank{1242}{A*}}{}
+\paper{P7}{Computational Wiretap Coding from Indistinguishability Obfuscation}
+  {https://eprint.iacr.org/2023/1270}
+  {Yuval Ishai, Aayush Jain, \me, Amit Sahai, Mark Zhandry.}
+  {Crypto 2023\corerank{94}{A*}}{}
+\paper{P6}{Hard Languages in $\mathsf{NP} \cap \mathsf{coNP}$ and NIZK Proofs from Unstructured Hardness}
+  {https://dl.acm.org/doi/10.1145/3564246.3585119}
+  {Riddhi Ghosal, Yuval Ishai, Alexis Korb, Eyal Kushilevitz, \me, Amit Sahai.}
+  {STOC 2023\corerank{65}{A*}}{}
+\paper{P5}{Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum $i\mathcal{O}$}
+  {https://eprint.iacr.org/2022/1637}
+  {Aayush Jain, Rachel Lin, \me, Amit Sahai.}
+  {Eurocrypt 2023\corerank{1242}{A*}}{}
+\paper{P4}{Efficient NIZKs from LWE via Polynomial Reconstruction and ``MPC in the Head''}
+  {https://eprint.iacr.org/2022/370}
+  {Riddhi Ghosal, \me, Amit Sahai.}
+  {Asiacrypt 2022\corerank{1243}{A}}{}
+\paper{P3}{Beyond the Csisz{\'a}r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation}
+  {https://eprint.iacr.org/2022/343}
+  {Yuval Ishai, Alexis Korb, \me, Amit Sahai.}
+  {Crypto 2022\corerank{94}{A*}}{ Invited and accepted submission to \textit{Journal of Cryptology}.}
+\paper{P2}{Relinearization Attack on LPN over Large Fields}
+  {https://doi.org/10.1093/comjnl/bxad070}
+  {\me, Amit Sahai, Varun Sivashankar.}
+  {CFAIL 2022\corenotlisted}{ Crypto-affiliated workshop. Invited and accepted submission to a special edition of \textit{The Computer Journal}.}
+\paper{P1}{Post-quantum RSA}
+  {https://eprint.iacr.org/2017/351}
+  {Daniel J. Bernstein, Nadia Heninger, \me, Luke Valenta.}
+  {PQCrypto 2017\corerank{1514}{C}}{}
+\end{papers}
+
+\section{Preprints}
+\begin{papers}
+\paper{W2}{A Note on the Pseudorandomness of Low-Degree Polynomials over the Integers}
+  {https://eprint.iacr.org/2021/1415}
+  {Aayush Jain, Alexis Korb, \me, Amit Sahai.}
+  {2021}{}
+\paper{W1}{Expanding COVID-19 Symptom Screening to Retail, Restaurants, and Schools by Preserving Privacy Using Relaxed Digital Signatures}
+  {https://www.medrxiv.org/content/10.1101/2020.08.06.20169839v2}
+  {Brandon Jew, Alexis Korb, \me, Jeffrey N. Chiang, Ulzee An, Amit Sahai, Eran Halperin, Eleazar~Eskin.}
+  {2020}{}
+\end{papers}
+
+\section{Talks}
+\begin{itemize}[label=\textperiodcentered,leftmargin=10pt,labelsep=4pt,itemsep=2.5pt,topsep=1pt,parsep=0pt,partopsep=0pt]
+\talk{Limitations on Autoregressive Token Generation via Sequential Sampling}{Bocconi seminar, Oct. 2026}
+\talk{Quantum Advantage via Solving Multivariate Polynomials}{University of Texas, Austin, Dec. 2025}
+\talk{Fully Anonymous Secret Sharing}{Crypto 2025\\Stanford, Sep. 2025}
+\talk{Ph.D. Thesis Defense}{University of California, Los Angeles, May 2025}
+\talk{Witness Semantic Security}{Eurocrypt 2024}
+\talk{Computational Wiretap Coding from Indistinguishability Obfuscation}{Simons Institute Summer 2025\\Conference on Information-Theoretic Cryptography 2024\\Crypto 2023}
+\talk{Hard Languages in $\mathsf{NP} \cap \mathsf{coNP}$ and NIZK Proofs from Unstructured Hardness}{Carnegie Mellon University, Apr. 2024}
+\talk{Beyond the Csisz{\'a}r-Korner Bound: Best-Possible Wiretap Coding via Obfuscation}{University of California, Los Angeles, Oral Qualifying Exam, Nov. 2023}
+\talk{Polynomial-Time Cryptanalysis of the Subspace Flooding Assumption for Post-Quantum $i\mathcal{O}$}{Eurocrypt 2023}
+\talk{Efficient NIZKs from LWE via Polynomial Reconstruction and ``MPC in the Head''}{Asiacrypt 2022}
+\talk{Relinearization Attack on LPN over Large Fields}{CFAIL 2022}
+\end{itemize}
+
+\section{Academic Service}
+\category{Program committee (PC) member for}{Asiacrypt 2026, CCS 2026, Oakland 2023 Posters Program.}
+\category{Reviewer for}{\textit{Journal of Cryptology} and \textit{Designs, Codes and Cryptography}.}
+\category{External reviewer for}{Crypto ('22, '25, '26), Eurocrypt ('24, '25, '26), STOC ('24, '25, '26), FOCS ('26), TCC ('23, '24, '25), IEEE S\&P ('24), Asiacrypt ('24), ITCS ('27), ICLR ('27).}
+
+\section{Teaching}
+\textbf{Instructor}\par
+{\small\raggedright\setlength{\leftskip}{9pt}
+(Co-lead Instructor) CS-289: Advanced Topics in Cryptography (Quantum Cryptography), Spring 2023, University of California, Los Angeles.\par}
+\vspace{3pt}
+\textbf{Teaching assistant}\par
+{\small\raggedright\setlength{\leftskip}{9pt}
+CS-181: Formal Languages and Automata Theory, Winter 2021, Winter 2022, Winter 2024, University of California, Los Angeles.\par
+CIS-556: Cryptography (Graduate-level), Fall 2018, UPenn.\par
+CIS-548: Operating Systems (Graduate-level), Spring 2018, UPenn.\par
+CIS-380: Operating Systems, Fall 2017, Fall 2018 (Head TA), UPenn.\par
+CIS-262: Theory of computation: Automata, Computability, \& Complexity, Fall 2016, UPenn.\par}
+\vspace{3pt}
+\textbf{Mentorship}\par
+{\small\raggedright\setlength{\leftskip}{9pt}
+Varun Sivashankar (UCLA Undergraduate) $\rightarrow$ Princeton Ph.D. in Applied Mathematics.\par}
+
+\section{Programming Languages}
+\begin{details}
+\item[Preferred] Python, C, C++
+\item[Experienced] OCaml, Java, Sage, Magma
+\end{details}
+
+% Keep the final personal-information row on this page after the mentorship entry.
+\enlargethispage{6pt}
+\section{Personal Information}
+\begin{details}
+\item[Languages] English (Mothertongue); Mandarin (Bilingual);\\French (B2); German (B1); Italian (B1).
+\item[Nationality] US Citizenship
+\item[Email] \href{mailto:paul.lou@unibocconi.it}{paul.lou@unibocconi.it}
+\item[Misc. Interests] Skiing\enspace\textperiodcentered\enspace Swimming\enspace\textperiodcentered\enspace Hot Chocolate
+\end{details}
+
+\end{document}
