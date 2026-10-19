@@ -92,7 +92,3 @@ limit at the selected width. All images in a batch are prepared before any
 website copies are replaced, so a preparation failure leaves them unchanged.
 
 The script does not edit page HTML, commit changes, or publish the website.
-
-## Other guides
-
-- [Blog migration](BLOG_MIGRATION.md)
