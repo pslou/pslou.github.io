@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="blog-post">
+  <header class="blog-header">
+    <a class="blog-back" href="{{ '/blog/' | relative_url }}">← plou's tHoTFuL SPot</a>
+    <h1 class="note-title">{{ page.title | escape }}</h1>
+    <p class="blog-meta"><time datetime="{{ page.display_date | default: page.date | date: '%Y-%m-%d' }}">{{ page.display_date | default: page.date | date: "%B %-d, %Y" }}</time></p>
+  </header>
+  <div class="blog-content">
+    {{ content }}
+  </div>
+  <nav class="blog-post-nav" aria-label="Blog post navigation">
+    <div>
+      {% if page.previous %}
+      <span class="blog-meta">Older</span>
+      <a href="{{ page.previous.url | relative_url }}" rel="prev">← {{ page.previous.title | escape }}</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if page.next %}
+      <span class="blog-meta">Newer</span>
+      <a href="{{ page.next.url | relative_url }}" rel="next">{{ page.next.title | escape }} →</a>
+      {% endif %}
+    </div>
+  </nav>
+  <p class="blog-links"><a href="{{ '/blog/archive/' | relative_url }}">All posts</a> · <a href="{{ '/blog/feed.xml' | relative_url }}">Subscribe via Atom</a></p>
+</article>

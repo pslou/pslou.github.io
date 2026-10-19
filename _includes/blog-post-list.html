@@ -1,0 +1,8 @@
+<ul class="blog-post-list">
+  {% for post in include.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    <time class="blog-meta" datetime="{{ post.display_date | default: post.date | date: '%Y-%m-%d' }}">{{ post.display_date | default: post.date | date: "%B %-d, %Y" }}</time>
+  </li>
+  {% endfor %}
+</ul>

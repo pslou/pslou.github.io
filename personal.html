@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Personal
-description: A little about Paul S. Lou outside of research — hobbies, photos, and drawings.
+description: A little about Paul S. Lou outside of research — hobbies, photos, drawings, and watercolor paintings.
 permalink: /personal.html
 ---
 
@@ -15,7 +15,7 @@ permalink: /personal.html
   <ul class="personal-list">
     <li>My hobbies include skiing, swimming, hiking, yoga, listening to podcasts, drinking hot chocolate, and making a variety of oatmeal.</li>
     <li>I happily swim with the Aquamore Acqua 13 Masters at Bocconi. Previously, I swam with the <a href="https://rec.stanford.edu/move/aquatics/masters-swimming">Stanford Masters</a> and <a href="https://www.swimwithheart.org/masters-program/">Swim with Heart Masters</a> in Santa Monica.</li>
-    <li>Two happy swim memories: swimming with Dad from Alcatraz to San Francisco in 2025, and swimming the Amalfi coast with two friends in 2026.</li>
+    <li>Two happy swim memories: <a class="photo-link" href="/assets/images/personal/alcatraz-swim-2025.jpg" data-photo-viewer data-photo-preview data-photo-alt="Paul and his dad after the Alcatraz swim" data-photo-caption="Swimming with Dad from Alcatraz to San Francisco, 2025." aria-haspopup="dialog" aria-controls="img-modal">swimming with Dad from Alcatraz to San Francisco</a> in 2025, and <a class="photo-link" href="/assets/images/personal/amalfi-swim-2026.jpg" data-photo-viewer data-photo-preview data-photo-alt="Paul and two friends at the water's edge on the Amalfi coast" data-photo-caption="Swimming the Amalfi coast with two friends, 2026." aria-haspopup="dialog" aria-controls="img-modal">swimming the Amalfi coast with two friends</a> in 2026.</li>
     <li>After finishing undergrad, I spent the 2018–2019 winter season living and skiing in Whistler, Canada, where I obtained <a href="https://www.snowpro.com/en/">CSIA</a> instructor certification.</li>
   </ul>
 </section>
@@ -26,6 +26,14 @@ permalink: /personal.html
     <img class="portfolio-img" src="/assets/images/portfolio/20190218_ballpoint_drawing_000.jpg" alt="First ballpoint drawing">
     <img class="portfolio-img" src="/assets/images/portfolio/20190219_ballpoint_drawing_001.jpg" alt="Ballpoint drawing 2">
   </div>
+
+  <h2 class="portfolio-section__title">watercolor paintings</h2>
+  <figure class="portfolio-artwork">
+    <a class="artwork-link" href="/assets/images/portfolio/eggplants-watercolor.jpg" data-photo-viewer data-photo-alt="Watercolor painting of two purple eggplants" data-photo-caption="For Tim and Greg." aria-haspopup="dialog" aria-controls="img-modal">
+      <img class="portfolio-img artwork-img" src="/assets/images/portfolio/eggplants-watercolor.jpg" alt="Watercolor painting of two purple eggplants" width="1200" height="758" loading="lazy" decoding="async">
+    </a>
+    <figcaption class="portfolio-artwork__caption">For Tim and Greg.</figcaption>
+  </figure>
 
   <h2 class="portfolio-section__title">photos</h2>
   <div class="portfolio-grid">
@@ -39,11 +47,11 @@ permalink: /personal.html
 </section>
 
 <!-- Image modal -->
-<div id="img-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="modal-overlay__close" id="modal-close" aria-label="Close image viewer">&times;</button>
-  <img class="modal-overlay__img" id="modal-img" src="" alt="">
+<dialog id="img-modal" class="modal-overlay" aria-label="Image viewer" aria-describedby="modal-caption">
+  <button class="modal-overlay__close" id="modal-close" type="button" aria-label="Close image viewer" autofocus>&times;</button>
+  <img class="modal-overlay__img" id="modal-img" alt="">
   <p class="modal-overlay__caption" id="modal-caption"></p>
-</div>
+</dialog>
 
 <script src="/assets/js/modal.js"></script>
 <script src="/assets/js/mountains.js"></script>

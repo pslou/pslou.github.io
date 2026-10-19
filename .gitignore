@@ -6,3 +6,5 @@ _site/
 !/cv/paul_cv.tex
 # Retired CV PDF retained only as a local copy.
 /assets/CV-PSL-2025-11-14.pdf
+# Full-resolution originals retained locally before website image optimization.
+/tools/image-backups/

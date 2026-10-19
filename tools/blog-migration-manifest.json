@@ -1,0 +1,170 @@
+{
+  "source_repository": "https://github.com/pslou/blog",
+  "source_snapshot": {
+    "branch": "gh-pages",
+    "commit": "5113b17ae48c40f3a88cb9f71d74dda43de4e6b7"
+  },
+  "published_snapshot": {
+    "branch": "master",
+    "commit": "d495c17eb729facb97a73cd6920de2e127603dee"
+  },
+  "canonical_origin": "https://paullou.me",
+  "import_notes": [
+    "Post titles, original date instants, categories and prose are unchanged. Only layout, explicit permalink, display_date metadata and Liquid image paths changed.",
+    "Pinned URLs and display_date metadata preserve the published UTC calendar dates regardless of build timezone, even when source filenames or original date offsets differ.",
+    "All six post images were imported byte-identically from the source and published snapshots. They were subsequently resized and compressed at the user's request; sha256 retains the original hash, and optimized_* records the served version. Original files are backed up under tools/image-backups/.",
+    "Both old feeds had scheme-less IDs. New Atom feeds use valid absolute HTTPS IDs; subscribers may see these corrected entries as new.",
+    "The old atom.xml links also omitted /blog. Both feed endpoints now use the preserved canonical post URLs."
+  ],
+  "posts": [
+    {
+      "source_path": "_posts/2019-03-10-oatmeal.markdown",
+      "destination_path": "_posts/2019-03-10-oatmeal.markdown",
+      "original_sha256": "85cac4e1e0db53aed3b52c0a4cb5388830aa9c9b7a6fc128ffccd298008f9370",
+      "permalink": "/blog/thoughts/2019/03/10/oatmeal/",
+      "published_path": "thoughts/2019/03/10/oatmeal/index.html",
+      "original_date": "2019-03-10 10:14:00 -0800",
+      "original_feed_id": "paullou.me/blog/thoughts/2019/03/10/oatmeal",
+      "new_feed_id": "https://paullou.me/blog/thoughts/2019/03/10/oatmeal/",
+      "display_date": "2019-03-10"
+    },
+    {
+      "source_path": "_posts/2017-05-27-lunch.markdown",
+      "destination_path": "_posts/2017-05-27-lunch.markdown",
+      "original_sha256": "9ada15288150a46958fcc4652f96f7c85220a10145b578b443457fe1bbd1a890",
+      "permalink": "/blog/seattle/2017/05/27/lunch/",
+      "published_path": "seattle/2017/05/27/lunch/index.html",
+      "original_date": "2017-05-27 16:30:00 -0700",
+      "original_feed_id": "paullou.me/blog/seattle/2017/05/27/lunch",
+      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/27/lunch/",
+      "display_date": "2017-05-27"
+    },
+    {
+      "source_path": "_posts/2017-05-25-biketastrophe.markdown",
+      "destination_path": "_posts/2017-05-25-biketastrophe.markdown",
+      "original_sha256": "33e831a2dd4ec6a47cfaf40ef6d9227039ad4232084d294f2a650e8fa4e3610d",
+      "permalink": "/blog/seattle/2017/05/26/biketastrophe/",
+      "published_path": "seattle/2017/05/26/biketastrophe/index.html",
+      "original_date": "2017-05-25 18:30:00 -0700",
+      "original_feed_id": "paullou.me/blog/seattle/2017/05/26/biketastrophe",
+      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/26/biketastrophe/",
+      "display_date": "2017-05-26"
+    },
+    {
+      "source_path": "_posts/2017-05-21-bike-work.markdown",
+      "destination_path": "_posts/2017-05-21-bike-work.markdown",
+      "original_sha256": "f47811bb7eb7bae76673d4a97f4a8b6b5f5c6d696061fdce1531734ac3c61902",
+      "permalink": "/blog/seattle/2017/05/22/bike-work/",
+      "published_path": "seattle/2017/05/22/bike-work/index.html",
+      "original_date": "2017-05-21 18:30:00 -0700",
+      "original_feed_id": "paullou.me/blog/seattle/2017/05/22/bike-work",
+      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/22/bike-work/",
+      "display_date": "2017-05-22"
+    },
+    {
+      "source_path": "_posts/2017-05-20-bike-levers.markdown",
+      "destination_path": "_posts/2017-05-20-bike-levers.markdown",
+      "original_sha256": "5774776325d93b61bd0a6e0a4e07069e6ffe3b12207a90c17fb47c4cf450a2c8",
+      "permalink": "/blog/seattle/2017/05/19/bike-levers/",
+      "published_path": "seattle/2017/05/19/bike-levers/index.html",
+      "original_date": "2017-05-19 08:30:00 -0700",
+      "original_feed_id": "paullou.me/blog/seattle/2017/05/19/bike-levers",
+      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/19/bike-levers/",
+      "display_date": "2017-05-19"
+    }
+  ],
+  "images": [
+    {
+      "source_path": "images/seattle-jank-bike/finished_prod.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/finished_prod.jpg",
+      "url": "/blog/images/seattle-jank-bike/finished_prod.jpg",
+      "sha256": "4ffebfa6929b39d7f13abbc10da3dc065ee4eaf07b04b0d4449c4dcc83de4ad2",
+      "optimized_sha256": "091f8f475c833ca1c8d18080a9acb3edab0dc839067b1b2ef8c84dff4fb67f67",
+      "optimized_bytes": 297202,
+      "optimized_width": 1200,
+      "optimized_height": 900
+    },
+    {
+      "source_path": "images/seattle-jank-bike/front_calipers.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/front_calipers.jpg",
+      "url": "/blog/images/seattle-jank-bike/front_calipers.jpg",
+      "sha256": "04f4303c323873d5fbe72919bbfa9d8fac10df0ffdc8576bc7417dc0d5b332ba",
+      "optimized_sha256": "c17a8dd5ae8cbf817ae25f204179ebe0ab6612dd4b7c20efdd88f67ac01587f8",
+      "optimized_bytes": 286668,
+      "optimized_width": 1200,
+      "optimized_height": 1600
+    },
+    {
+      "source_path": "images/seattle-jank-bike/old_bike_handles.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/old_bike_handles.jpg",
+      "url": "/blog/images/seattle-jank-bike/old_bike_handles.jpg",
+      "sha256": "72a019c0a004950d99ea6fff2d775c616479957cbd0664f0136ff5d9be67b7f1",
+      "optimized_sha256": "f91505e37b08fa12bcc8f2a8adb527b7cc3b7f00997e1b3e844bd801bc0f1867",
+      "optimized_bytes": 297375,
+      "optimized_width": 1200,
+      "optimized_height": 1600
+    },
+    {
+      "source_path": "images/seattle-jank-bike/rear_calipers.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/rear_calipers.jpg",
+      "url": "/blog/images/seattle-jank-bike/rear_calipers.jpg",
+      "sha256": "5a25015d8fbf41bbcacd1b512c82bed984737465d8bd4e1903d5d1bfb7848019",
+      "optimized_sha256": "4bebde0f93f018bfa5f671c031264d9abe83f516b4d2b1e6b3943b2a9e881d51",
+      "optimized_bytes": 296493,
+      "optimized_width": 1200,
+      "optimized_height": 1600
+    },
+    {
+      "source_path": "images/seattle-jank-bike/test_slope.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/test_slope.jpg",
+      "url": "/blog/images/seattle-jank-bike/test_slope.jpg",
+      "sha256": "5bfe69781ab56f3e2baa50fbf77c6b11733e5c72c935b58975507c8b6b7f00f2",
+      "optimized_sha256": "deee81dec928075fbf074b86dffa18265e973658510149286da155a5be0e7355",
+      "optimized_bytes": 298603,
+      "optimized_width": 1200,
+      "optimized_height": 1600
+    },
+    {
+      "source_path": "images/seattle-jank-bike/tools.jpg",
+      "destination_path": "blog/images/seattle-jank-bike/tools.jpg",
+      "url": "/blog/images/seattle-jank-bike/tools.jpg",
+      "sha256": "dc1093f1d52b6bdf687d4e4d30a20fcd4a125bc2f50ee6e23b54c69682de5818",
+      "optimized_sha256": "ad774a2271bf1102bc1f54730c1647bc35dd775578c35e33633d9fcefbbc1968",
+      "optimized_bytes": 290246,
+      "optimized_width": 1200,
+      "optimized_height": 1600
+    }
+  ],
+  "preserved_routes": [
+    "/blog/",
+    "/blog/archive/",
+    "/blog/atom.xml",
+    "/blog/feed.xml",
+    "/blog/sitemap.xml",
+    "/blog/404.html",
+    "/blog/robots.txt",
+    "/blog/thoughts/2019/03/10/oatmeal/",
+    "/blog/seattle/2017/05/27/lunch/",
+    "/blog/seattle/2017/05/26/biketastrophe/",
+    "/blog/seattle/2017/05/22/bike-work/",
+    "/blog/seattle/2017/05/19/bike-levers/",
+    "/blog/images/seattle-jank-bike/finished_prod.jpg",
+    "/blog/images/seattle-jank-bike/front_calipers.jpg",
+    "/blog/images/seattle-jank-bike/old_bike_handles.jpg",
+    "/blog/images/seattle-jank-bike/rear_calipers.jpg",
+    "/blog/images/seattle-jank-bike/test_slope.jpg",
+    "/blog/images/seattle-jank-bike/tools.jpg",
+    "/blog/public/apple-touch-icon-precomposed.png",
+    "/blog/public/css/lanyon.css",
+    "/blog/public/css/poole.css",
+    "/blog/public/css/syntax.css",
+    "/blog/public/favicon.ico"
+  ],
+  "redirect_routes": {
+    "/blog/index/": "/blog/",
+    "/blog/page2/": "/blog/",
+    "/blog/page3/": "/blog/",
+    "/blog/page4/": "/blog/",
+    "/blog/page5/": "/blog/"
+  }
+}

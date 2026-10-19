@@ -1,0 +1,52 @@
+/* The personal blog shares the main site's typography and theme colours. */
+.blog-header { margin-bottom: 2rem; }
+.blog-header h1 { margin-bottom: 0.5rem; }
+.blog-index > h2,
+.blog-welcome > h2,
+.blog-archive > h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--c-text);
+  margin-bottom: 1.25rem;
+}
+.blog-meta { color: var(--c-text-muted); font-size: 0.85rem; }
+.blog-back { display: inline-block; margin-bottom: 1.25rem; font-size: 0.85rem; }
+.blog-links { font-size: 0.85rem; }
+.blog-post-list { list-style: none; margin: 0 0 2rem; padding: 0; }
+.blog-post-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.blog-post-list time { flex-shrink: 0; }
+.blog-welcome { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--c-border); }
+.blog-content { overflow-wrap: break-word; }
+.blog-content p { margin-bottom: 1.25rem; }
+.blog-content img { margin: 1.5rem auto; border-radius: 0.25rem; }
+.blog-content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--c-border);
+  color: var(--c-text-muted);
+}
+.blog-content blockquote p:last-child { margin-bottom: 0; }
+.blog-content pre { overflow-x: auto; }
+.blog-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--c-border);
+  font-size: 0.9rem;
+}
+.blog-post-nav > div:last-child { text-align: right; }
+.blog-post-nav .blog-meta { display: block; margin-bottom: 0.25rem; }
+@media (max-width: 480px) {
+  .blog-post-list li { flex-direction: column; gap: 0.15rem; }
+}

@@ -1,0 +1,5 @@
+---
+layout: null
+permalink: /blog/feed.xml
+---
+{% include blog-feed.xml %}

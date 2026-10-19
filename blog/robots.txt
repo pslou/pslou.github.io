@@ -1,0 +1,4 @@
+---
+layout: null
+---
+Sitemap: {{ '/blog/sitemap.xml' | absolute_url }}

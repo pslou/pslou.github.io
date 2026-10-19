@@ -1,13 +1,24 @@
 # Site configuration for Jekyll-driven notes
 name: pslou.github.io
 baseurl: ""
-url: ""
+url: "https://paullou.me"
 permalink: pretty
 collections:
   notes:
     output: true
     permalink: /notes/:slug/
 defaults:
+  - scope:
+      path: "blog"
+    values:
+      blog: true
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: blog_post
+      permalink: /blog/:categories/:year/:month/:day/:title/
+      blog: true
   - scope:
       path: ""
       type: notes
@@ -24,6 +35,7 @@ kramdown:
 excerpt_separator: '<!--more-->'
 exclude:
   - cv
+  - tools
   - node_modules
   - package.json
   - package-lock.json

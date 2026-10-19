@@ -1,0 +1,26 @@
+---
+layout: blog_post
+permalink: /blog/seattle/2017/05/22/bike-work/
+display_date: "2017-05-22"
+title:  "finished bike"
+date:   2017-05-21 18:30:00 -0700
+categories: seattle
+---
+
+So here are the photos. These are the tools and the new bike levers:
+![Tools]({{ '/blog/images/seattle-jank-bike/tools.jpg' | relative_url }})
+And these are the old bike handles:
+![Old Bike Handles]({{ '/blog/images/seattle-jank-bike/old_bike_handles.jpg' | relative_url }})
+The calipers you see below are centerpull brake calipers. 
+My fingers were crying and my back was mad aching by the end
+of servicing them. I had to take multiple tries adjusting the break cable
+in the yolk and I inadvertently looped the rear break cable onto the nut for the 
+seat height adjustment. So I can't actually adjust the seat height anymore...
+![Front Calipers]({{ '/blog/images/seattle-jank-bike/front_calipers.jpg' | relative_url }})
+![Rear Calipers]({{ '/blog/images/seattle-jank-bike/rear_calipers.jpg' | relative_url }})
+This is what the bike looked like after I was done:
+![Finished]({{ '/blog/images/seattle-jank-bike/finished_prod.jpg' | relative_url }})
+And I took it down a slope to test the breaks:
+![Slope]({{ '/blog/images/seattle-jank-bike/test_slope.jpg' | relative_url }})
+The breaks were weak but acceptable since I can use my feet to stop
+myself after slowing down enough. So YAY! 

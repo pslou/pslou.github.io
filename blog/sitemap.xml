@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /blog/sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ '/blog/' | absolute_url | xml_escape }}</loc></url>
+  <url><loc>{{ '/blog/archive/' | absolute_url | xml_escape }}</loc></url>
+  {% assign blog_posts = site.posts | where: "blog", true %}{% for post in blog_posts %}
+  <url>
+    <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}
+</urlset>

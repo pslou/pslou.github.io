@@ -940,58 +940,130 @@ code {
   transition: opacity var(--dur) ease, transform var(--dur) ease;
 }
 .portfolio-img:hover { opacity: 0.82; transform: scale(1.015); }
+.portfolio-img:focus-visible,
+.artwork-link:focus-visible,
+.photo-link:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 4px;
+}
+
+.portfolio-artwork {
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+}
+.artwork-link { display: block; border-radius: 0.45rem; }
+.portfolio-img.artwork-img { height: auto; object-fit: contain; }
+.portfolio-artwork__caption {
+  margin-top: 0.65rem;
+  color: var(--c-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.photo-link {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.photo-link:hover { text-decoration-style: solid; }
+
+/* Supplemental desktop preview; the links also open the full image on tap. */
+.photo-preview {
+  position: fixed;
+  z-index: 150;
+  width: min(360px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--c-border);
+  border-radius: 0.6rem;
+  background: var(--c-bg-card);
+  color: var(--c-text);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24);
+}
+.photo-preview[hidden] { display: none; }
+.photo-preview__img {
+  width: 100%;
+  max-height: min(300px, calc(100vh - 110px));
+  max-height: min(300px, calc(100dvh - 110px));
+  object-fit: contain;
+  border-radius: 0.3rem;
+}
+.photo-preview__caption {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
 
 /* Modal overlay */
 .modal-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.88);
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: max(4.5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  border: 0;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
 }
-.modal-overlay.is-open { display: flex; }
+.modal-overlay::backdrop { background: rgba(0, 0, 0, 0.9); }
+.modal-overlay[open] {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: center;
+  gap: 0.75rem;
+}
 
 .modal-overlay__img {
-  max-width: 90vw;
-  max-height: 80vh;
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 0.35rem;
   display: block;
   animation: modal-pop 0.22s ease;
 }
 .modal-overlay__caption {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  max-width: 65ch;
+  max-height: 25vh;
+  margin: 0;
   color: #fff;
   font-size: 0.9rem;
+  line-height: 1.5;
   text-align: center;
-  background: rgba(0,0,0,0.5);
-  padding: 0.35rem 1rem;
-  border-radius: 999px;
-  white-space: nowrap;
-  max-width: 80vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
 }
 .modal-overlay__close {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
   color: #fff;
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 0.9;
   transition: opacity var(--dur) ease;
 }
 .modal-overlay__close:hover { opacity: 1; }
+.modal-overlay__close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
 @keyframes modal-pop {
   from { transform: scale(0.9); opacity: 0; }

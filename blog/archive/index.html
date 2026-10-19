@@ -1,0 +1,17 @@
+---
+layout: default
+title: Blog archive
+permalink: /blog/archive/
+---
+<section class="blog-archive">
+  <header class="blog-header">
+    <a class="blog-back" href="{{ '/blog/' | relative_url }}">← plou's tHoTFuL SPot</a>
+    <h1 class="note-title">Blog archive</h1>
+  </header>
+  {% assign years = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
+  {% for year in years %}
+  <h2>{{ year.name }}</h2>
+  {% include blog-post-list.html posts=year.items %}
+  {% endfor %}
+  <p class="blog-links"><a href="{{ '/blog/feed.xml' | relative_url }}">Subscribe via Atom</a></p>
+</section>
