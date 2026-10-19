@@ -955,12 +955,12 @@ code {
   min-width: 0;
   margin: 0;
 }
-.artwork-link { display: block; border-radius: 0.45rem; }
+.artwork-link { display: block; }
 .portfolio-img.artwork-img {
   height: auto;
-  aspect-ratio: 4 / 3;
   object-fit: contain;
-  background: var(--c-bg-card);
+  border: 0;
+  border-radius: 0;
 }
 .portfolio-artwork__caption {
   margin-top: 0.65rem;
