@@ -73,9 +73,10 @@ matching path in `assets/images/` or `blog/images/`. For a fresh export with
 different settings, start from the original rather than an already compressed
 copy.
 
-`tools/image-optimization-report.json` contains the latest run's before/after
-sizes, dimensions, JPEG quality settings, and checksums. Each successful run
-also saves its own `report.json` inside the timestamped backup directory.
+The optimizer generates `tools/image-optimization-report.json` with the latest
+run's before/after sizes, dimensions, JPEG quality settings, and checksums. This
+local report is ignored by Git. Each successful run also saves its own
+`report.json` inside the timestamped backup directory.
 
 ### Supported formats and failures
 

@@ -4,9 +4,8 @@ The blog is now part of `pslou.github.io`. The local import preserves five posts
 six photos, the welcome text, and the historical post, archive, image and feed URLs.
 The main site's `random` navigation link opens `/blog/`.
 
-No commit, push, pull, clone, GitHub setting change, or repository deletion was
-performed. The steps below separate the completed local work from the remaining
-publishing work.
+The local migration has been committed. The steps below cover reviewing the
+result, publishing it, and retiring the old repository after verification.
 
 ## 1. Review the local result
 
@@ -50,42 +49,16 @@ Keep the bundle somewhere durable. A Git backup does not preserve GitHub-specifi
 metadata such as issues or release attachments; save those separately if needed.
 [GitHub backup documentation](https://docs.github.com/en/repositories/archiving-a-github-repository/backing-up-a-repository).
 
-## 3. Stage and commit only the migration
+## 3. Publish the committed migration
 
-There was already unfinished notes/layout work in the working tree. The prepared
-patch changes the two shared files without staging that unrelated work. It targets
-the original `HEAD` (`87e1d8d`); if those files or the index have since changed,
-review/regenerate the patch instead of forcing it to apply.
+The migration changes have already been committed, so the one-time staging
+instructions are no longer needed. Imported post bodies retain their original
+bytes, including a few trailing spaces.
 
-From the website repository, with no unrelated changes already staged:
-
-```sh
-git apply --cached --check tools/blog-shared-files.patch
-git apply --cached tools/blog-shared-files.patch
-git add -- \
-  _posts/2017-05-20-bike-levers.markdown \
-  _posts/2017-05-21-bike-work.markdown \
-  _posts/2017-05-25-biketastrophe.markdown \
-  _posts/2017-05-27-lunch.markdown \
-  _posts/2019-03-10-oatmeal.markdown \
-  _layouts/blog_post.html _layouts/blog_redirect.html \
-  _includes/blog-post-list.html _includes/blog-feed.xml \
-  assets/css/blog.css blog/ \
-  tools/BLOG_MIGRATION.md tools/blog-migration-manifest.json \
-  tools/check-blog.py tools/blog-shared-files.patch
-git diff --cached --stat
-git diff --cached
-```
-
-The shared-file patch adds the blog settings, canonical site URL, blog stylesheet,
-feed discovery, navigation link, and the `tools` build exclusion. It does not
-include unfinished note layouts, note assets, or changes to `main.css`.
-Imported post bodies retain their original bytes, including a few trailing spaces.
-
-After reviewing the staged changes:
+If the migration commit has not yet been pushed, publish it from the website
+repository when ready:
 
 ```sh
-git commit -m "Integrate personal blog into main website"
 git push
 ```
 

@@ -8,3 +8,5 @@ _site/
 /assets/CV-PSL-2025-11-14.pdf
 # Full-resolution originals retained locally before website image optimization.
 /tools/image-backups/
+# Generated image optimization audit; keep each run local.
+/tools/image-optimization-report.json
