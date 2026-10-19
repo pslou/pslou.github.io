@@ -13,8 +13,7 @@
     "Post titles, original date instants, categories and prose are unchanged. Only layout, explicit permalink, display_date metadata and Liquid image paths changed.",
     "Pinned URLs and display_date metadata preserve the published UTC calendar dates regardless of build timezone, even when source filenames or original date offsets differ.",
     "All six post images were imported byte-identically from the source and published snapshots. They were subsequently resized and compressed at the user's request; sha256 retains the original hash, and optimized_* records the served version. Original files are backed up under tools/image-backups/.",
-    "Both old feeds had scheme-less IDs. New Atom feeds use valid absolute HTTPS IDs; subscribers may see these corrected entries as new.",
-    "The old atom.xml links also omitted /blog. Both feed endpoints now use the preserved canonical post URLs."
+    "Atom subscriptions were intentionally removed at the site owner's request. The former /blog/atom.xml and /blog/feed.xml endpoints are no longer published, and blog pages no longer advertise feeds."
   ],
   "posts": [
     {
@@ -25,7 +24,6 @@
       "published_path": "thoughts/2019/03/10/oatmeal/index.html",
       "original_date": "2019-03-10 10:14:00 -0800",
       "original_feed_id": "paullou.me/blog/thoughts/2019/03/10/oatmeal",
-      "new_feed_id": "https://paullou.me/blog/thoughts/2019/03/10/oatmeal/",
       "display_date": "2019-03-10"
     },
     {
@@ -36,7 +34,6 @@
       "published_path": "seattle/2017/05/27/lunch/index.html",
       "original_date": "2017-05-27 16:30:00 -0700",
       "original_feed_id": "paullou.me/blog/seattle/2017/05/27/lunch",
-      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/27/lunch/",
       "display_date": "2017-05-27"
     },
     {
@@ -47,7 +44,6 @@
       "published_path": "seattle/2017/05/26/biketastrophe/index.html",
       "original_date": "2017-05-25 18:30:00 -0700",
       "original_feed_id": "paullou.me/blog/seattle/2017/05/26/biketastrophe",
-      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/26/biketastrophe/",
       "display_date": "2017-05-26"
     },
     {
@@ -58,7 +54,6 @@
       "published_path": "seattle/2017/05/22/bike-work/index.html",
       "original_date": "2017-05-21 18:30:00 -0700",
       "original_feed_id": "paullou.me/blog/seattle/2017/05/22/bike-work",
-      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/22/bike-work/",
       "display_date": "2017-05-22"
     },
     {
@@ -69,7 +64,6 @@
       "published_path": "seattle/2017/05/19/bike-levers/index.html",
       "original_date": "2017-05-19 08:30:00 -0700",
       "original_feed_id": "paullou.me/blog/seattle/2017/05/19/bike-levers",
-      "new_feed_id": "https://paullou.me/blog/seattle/2017/05/19/bike-levers/",
       "display_date": "2017-05-19"
     }
   ],
@@ -138,8 +132,6 @@
   "preserved_routes": [
     "/blog/",
     "/blog/archive/",
-    "/blog/atom.xml",
-    "/blog/feed.xml",
     "/blog/sitemap.xml",
     "/blog/404.html",
     "/blog/robots.txt",
@@ -166,5 +158,9 @@
     "/blog/page3/": "/blog/",
     "/blog/page4/": "/blog/",
     "/blog/page5/": "/blog/"
-  }
+  },
+  "removed_routes": [
+    "/blog/atom.xml",
+    "/blog/feed.xml"
+  ]
 }

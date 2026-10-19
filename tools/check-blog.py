@@ -19,9 +19,7 @@ from urllib.parse import unquote, urljoin, urlparse
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
-ATOM = "{http://www.w3.org/2005/Atom}"
 SITEMAP = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
-XML_BASE = "{http://www.w3.org/XML/1998/namespace}base"
 
 
 class References(HTMLParser):
@@ -29,6 +27,7 @@ class References(HTMLParser):
         super().__init__()
         self.references = []
         self.canonical_urls = []
+        self.feed_links = []
         self.refresh_targets = []
         self.hrefs = []
         self.times = []
@@ -40,6 +39,10 @@ class References(HTMLParser):
         attrs = dict(attrs)
         if tag == "link" and "canonical" in (attrs.get("rel") or "").split():
             self.canonical_urls.append(attrs.get("href"))
+        if (tag == "link" and "alternate" in (attrs.get("rel") or "").lower().split()
+                and (attrs.get("type") or "").split(";")[0].strip().lower()
+                in ("application/atom+xml", "application/rss+xml")):
+            self.feed_links.append(attrs.get("href"))
         if tag == "meta" and (attrs.get("http-equiv") or "").lower() == "refresh":
             match = re.fullmatch(r"\s*0\s*;\s*url\s*=\s*(.+?)\s*",
                                  attrs.get("content") or "", re.I)
@@ -79,6 +82,10 @@ def main():
         if not condition:
             errors.append(message)
 
+    for route in manifest["removed_routes"]:
+        require(not (ROOT / route.lstrip("/")).exists(),
+                f"Removed feed remains in source: {route}")
+
     for post in manifest["posts"]:
         path = ROOT / post["destination_path"]
         text = path.read_text()
@@ -112,6 +119,9 @@ def main():
         host = urlparse(origin).netloc
         for route in manifest["preserved_routes"] + list(manifest["redirect_routes"]):
             require(output_path(site, route).is_file(), f"Missing historical URL: {route}")
+        for route in manifest["removed_routes"]:
+            require(not output_path(site, route).exists(),
+                    f"Removed feed remains in built site: {route}")
         for route, target in manifest["redirect_routes"].items():
             path = output_path(site, route)
             if not path.is_file():
@@ -162,59 +172,17 @@ def main():
                     f"{path}: rendered page depends on old repository")
             refs = References()
             refs.feed(text)
+            require(not refs.feed_links, f"{path}: Atom/RSS autodiscovery remains")
             base = origin + "/" + str(path.relative_to(site))
             for reference in refs.references:
                 check_reference(reference, base, str(path))
 
-        expected_posts = {origin + post["permalink"]: post for post in manifest["posts"]}
-        for endpoint in ("atom.xml", "feed.xml"):
-            path = site / "blog" / endpoint
-            try:
-                feed = ElementTree.parse(path).getroot()
-            except (OSError, ElementTree.ParseError) as error:
-                errors.append(f"{path}: invalid Atom XML: {error}")
-                continue
-            require(feed.tag == ATOM + "feed", f"{path}: not an Atom feed")
-            require(feed.findtext(ATOM + "id") == origin + "/blog/",
-                    f"{path}: incorrect feed ID")
-            self_links = [link.get("href") for link in feed.findall(ATOM + "link")
-                          if link.get("rel") == "self"]
-            require(self_links == [origin + "/blog/" + endpoint],
-                    f"{path}: incorrect feed self URL")
-            entries = feed.findall(ATOM + "entry")
-            ids = [entry.findtext(ATOM + "id") for entry in entries]
-            require(len(ids) == len(set(ids)), f"{path}: duplicate feed entry IDs")
-            require(set(expected_posts).issubset(ids), f"{path}: missing imported feed entries")
-            for entry in entries:
-                entry_id = entry.findtext(ATOM + "id")
-                require(bool(entry_id and entry_id.startswith(origin + "/blog/")),
-                        f"{path}: invalid absolute entry ID: {entry_id}")
-                link = entry.find(ATOM + "link")
-                require(link is not None and link.get("href") == entry_id,
-                        f"{path}: entry link does not match canonical ID")
-                if entry_id in expected_posts:
-                    original_date = expected_posts[entry_id]["original_date"]
-                    actual_date = entry.findtext(ATOM + "published")
-                    try:
-                        require(datetime.fromisoformat(actual_date) ==
-                                datetime.strptime(original_date, "%Y-%m-%d %H:%M:%S %z"),
-                                f"{path}: changed post date for {entry_id}")
-                    except (TypeError, ValueError):
-                        errors.append(f"{path}: invalid published date for {entry_id}")
-                content = entry.find(ATOM + "content")
-                require(content is not None and content.get(XML_BASE) == entry_id,
-                        f"{path}: missing absolute content base for {entry_id}")
-                if content is not None:
-                    refs = References()
-                    refs.feed(content.text or "")
-                    for reference in refs.references:
-                        check_reference(reference, entry_id, str(path))
-
+        expected_posts = {origin + post["permalink"] for post in manifest["posts"]}
         path = site / "blog/sitemap.xml"
         try:
             sitemap = ElementTree.parse(path).getroot()
             locations = {node.text for node in sitemap.iter(SITEMAP + "loc")}
-            require(set(expected_posts).issubset(locations), f"{path}: missing post URLs")
+            require(expected_posts.issubset(locations), f"{path}: missing post URLs")
             for location in locations:
                 require(bool(location and location.startswith(origin + "/blog/")),
                         f"{path}: invalid absolute sitemap URL: {location}")
@@ -225,7 +193,7 @@ def main():
 
     for error in errors:
         print(error, file=sys.stderr)
-    scope = "source and built URLs/feeds" if args.site else "source"
+    scope = "source and built URLs" if args.site else "source"
     print(f"Blog {scope}: {len(manifest['posts'])} posts, "
           f"{len(manifest['images'])} images, {len(errors)} issue(s)")
     return 1 if errors else 0

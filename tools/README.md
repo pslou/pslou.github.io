@@ -3,8 +3,9 @@
 ## Optimize images
 
 [`optimize-images.py`](optimize-images.py) automates resizing and compressing
-website images. It requires Python 3 and macOS's built-in `/usr/bin/sips`; no
-extra Python packages are needed.
+website images. It requires Python 3, Pillow, and macOS's built-in `/usr/bin/sips`.
+Pillow is already installed in the Python environment used here. If you use a
+different Python environment, install Pillow there with `python3 -m pip install Pillow`.
 
 By default, it:
 
@@ -81,9 +82,17 @@ local report is ignored by Git. Each successful run also saves its own
 ### Supported formats and failures
 
 Supported extensions are `.jpg`, `.jpeg`, and `.png` (case-insensitive).
-JPEGs are resized first, then compressed. Each quality trial starts from the
-original or a lossless resized intermediate, avoiding repeated compression of
-trial outputs.
+Pillow first decodes the primary image, applies its orientation, and creates a
+lossless copy without auxiliary camera metadata, retaining its color profile.
+CMYK JPEGs are converted to RGB for compatibility with this intermediate format.
+This avoids a macOS converter issue that can turn some iPhone JPEGs black.
+JPEGs are then resized and compressed with `sips`. Each quality trial starts from
+a lossless intermediate, avoiding repeated compression of trial outputs.
+
+Before replacing any files, the script independently decodes each export and
+compares its visible pixels with the original at thumbnail size. It stops if
+detail disappears or the pixels change substantially. Previewing the result
+before publishing is still recommended.
 
 PNGs are resized and exported as PNGs; JPEG-style quality adjustment does not
 apply. If a PNG cannot meet the size requirement, the script stops and requires

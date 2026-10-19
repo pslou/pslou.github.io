@@ -5,17 +5,21 @@ Example: python3 tools/optimize-images.py assets/images/portfolio/new-photo.jpg
 Only explicitly named files are processed. Originals and a report are backed up
 under tools/image-backups/ (excluded from the site and ignored by Git).
 No images are upscaled or cropped. Existing small images are left unchanged.
+Requires Pillow to normalize image metadata and verify exported pixels.
 """
 
 import argparse
 from datetime import datetime, timezone
 import hashlib
+from io import BytesIO
 import json
 from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
+
+from PIL import Image, ImageChops, ImageCms, ImageOps, ImageStat
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -36,6 +40,26 @@ def dimensions(path):
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def visual_sample(image):
+    """Compare visible pixels independently of macOS's image decoder."""
+    sample = image.convert('RGBA').resize((64, 64), Image.Resampling.LANCZOS)
+    background = Image.new('RGBA', sample.size, 'white')
+    return Image.alpha_composite(background, sample).convert('RGB')
+
+
+def verify_pixels(reference, target):
+    with Image.open(target) as exported:
+        exported.load()
+        actual = visual_sample(exported)
+    expected = visual_sample(reference)
+    difference = ImageStat.Stat(ImageChops.difference(expected, actual)).mean
+    lost_detail = (max(ImageStat.Stat(expected).stddev) > 5 and
+                   max(ImageStat.Stat(actual).stddev) < 1)
+    if lost_detail or max(difference) > 20:
+        raise RuntimeError(f'{target}: export differs substantially from the original; '
+                           'no website images were replaced')
 
 
 def main():
@@ -66,7 +90,18 @@ def main():
         outputs = []
         for index, source in enumerate(paths):
             relative = source.relative_to(ROOT)
-            width, height = dimensions(source)
+            with Image.open(source) as decoded:
+                decoded.load()
+                reference = ImageOps.exif_transpose(decoded)
+            if reference.mode == 'CMYK':
+                profile = reference.info.get('icc_profile')
+                if profile:
+                    reference = ImageCms.profileToProfile(
+                        reference, ImageCms.ImageCmsProfile(BytesIO(profile)),
+                        ImageCms.createProfile('sRGB'), outputMode='RGB')
+                else:
+                    reference = reference.convert('RGB')
+            width, height = reference.size
             entry = {'path': str(relative), 'original_bytes': source.stat().st_size,
                      'original_width': width, 'original_height': height,
                      'original_sha256': sha256(source)}
@@ -82,13 +117,17 @@ def main():
             shutil.copy2(source, original)
             assert sha256(original) == entry['original_sha256']
 
-            # Resize into a lossless intermediate. Quality-only trials can use
-            # the source itself; no trial ever re-encodes a previous trial.
-            intermediate = source
+            # Decode the primary image independently, apply its orientation, and
+            # discard auxiliary camera metadata before handing pixels to sips.
+            # Some iPhone JPEG metadata makes sips silently export black pixels.
+            normalized = staging / f'{index}-source.png'
+            reference.save(normalized, format='PNG',
+                           icc_profile=reference.info.get('icc_profile'), exif=b'')
+            intermediate = normalized
             if width > args.max_width:
                 intermediate = staging / f'{index}.tiff'
                 sips('--resampleWidth', args.max_width, '-s', 'format', 'tiff',
-                     '-s', 'formatOptions', 'lzw', source, '--out', intermediate)
+                     '-s', 'formatOptions', 'lzw', normalized, '--out', intermediate)
             target = staging / f'{index}{source.suffix.lower()}'
             quality = None
             byte_limit = min(args.max_bytes, entry['original_bytes'])
@@ -118,6 +157,7 @@ def main():
             assert new_width == min(width, args.max_width)
             assert abs(new_height - height * new_width / width) <= 1
             assert target.stat().st_size < args.max_bytes
+            verify_pixels(reference, target)
             entry.update(changed=True, bytes=target.stat().st_size, width=new_width,
                          height=new_height, sha256=sha256(target), quality=quality)
             outputs.append((target, source))

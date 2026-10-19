@@ -1,5 +1,0 @@
----
-layout: null
-permalink: /blog/atom.xml
----
-{% include blog-feed.xml %}
