@@ -2,7 +2,7 @@
 layout: blog_post
 permalink: /blog/seattle/2017/05/26/biketastrophe/
 display_date: "2017-05-26"
-title:  "bike-tastrophe"
+title:  "Bike-tastrophe"
 date:   2017-05-25 18:30:00 -0700
 categories: seattle 
 ---

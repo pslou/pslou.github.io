@@ -10,7 +10,7 @@
   },
   "canonical_origin": "https://paullou.me",
   "import_notes": [
-    "Post titles, original date instants, categories and prose are unchanged. Only layout, explicit permalink, display_date metadata and Liquid image paths changed.",
+    "Original date instants, categories and prose are unchanged. Migration changed only layout, explicit permalink, display_date metadata and Liquid image paths. Post titles subsequently had their first letter capitalized at the user's request; original_title and display_title record this edit while original_sha256 retains the source hash.",
     "Pinned URLs and display_date metadata preserve the published UTC calendar dates regardless of build timezone, even when source filenames or original date offsets differ.",
     "All six post images were imported byte-identically from the source and published snapshots. They were subsequently resized and compressed at the user's request; sha256 retains the original hash, and optimized_* records the served version. Original files are backed up under tools/image-backups/.",
     "Atom subscriptions were intentionally removed at the site owner's request. The former /blog/atom.xml and /blog/feed.xml endpoints are no longer published, and blog pages no longer advertise feeds."
@@ -19,6 +19,8 @@
     {
       "source_path": "_posts/2019-03-10-oatmeal.markdown",
       "destination_path": "_posts/2019-03-10-oatmeal.markdown",
+      "original_title": "appreciating oatmeal",
+      "display_title": "Appreciating oatmeal",
       "original_sha256": "85cac4e1e0db53aed3b52c0a4cb5388830aa9c9b7a6fc128ffccd298008f9370",
       "permalink": "/blog/thoughts/2019/03/10/oatmeal/",
       "published_path": "thoughts/2019/03/10/oatmeal/index.html",
@@ -29,6 +31,8 @@
     {
       "source_path": "_posts/2017-05-27-lunch.markdown",
       "destination_path": "_posts/2017-05-27-lunch.markdown",
+      "original_title": "lunch times",
+      "display_title": "Lunch times",
       "original_sha256": "9ada15288150a46958fcc4652f96f7c85220a10145b578b443457fe1bbd1a890",
       "permalink": "/blog/seattle/2017/05/27/lunch/",
       "published_path": "seattle/2017/05/27/lunch/index.html",
@@ -39,6 +43,8 @@
     {
       "source_path": "_posts/2017-05-25-biketastrophe.markdown",
       "destination_path": "_posts/2017-05-25-biketastrophe.markdown",
+      "original_title": "bike-tastrophe",
+      "display_title": "Bike-tastrophe",
       "original_sha256": "33e831a2dd4ec6a47cfaf40ef6d9227039ad4232084d294f2a650e8fa4e3610d",
       "permalink": "/blog/seattle/2017/05/26/biketastrophe/",
       "published_path": "seattle/2017/05/26/biketastrophe/index.html",
@@ -49,6 +55,8 @@
     {
       "source_path": "_posts/2017-05-21-bike-work.markdown",
       "destination_path": "_posts/2017-05-21-bike-work.markdown",
+      "original_title": "finished bike",
+      "display_title": "Finished bike",
       "original_sha256": "f47811bb7eb7bae76673d4a97f4a8b6b5f5c6d696061fdce1531734ac3c61902",
       "permalink": "/blog/seattle/2017/05/22/bike-work/",
       "published_path": "seattle/2017/05/22/bike-work/index.html",
@@ -59,6 +67,8 @@
     {
       "source_path": "_posts/2017-05-20-bike-levers.markdown",
       "destination_path": "_posts/2017-05-20-bike-levers.markdown",
+      "original_title": "plan: replacing bike levers",
+      "display_title": "Plan: replacing bike levers",
       "original_sha256": "5774776325d93b61bd0a6e0a4e07069e6ffe3b12207a90c17fb47c4cf450a2c8",
       "permalink": "/blog/seattle/2017/05/19/bike-levers/",
       "published_path": "seattle/2017/05/19/bike-levers/index.html",

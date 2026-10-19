@@ -3,7 +3,8 @@
 
 Run: python3 tools/check-blog.py [--site /path/to/jekyll/output]
 The source check reconstructs every original post by reversing only the
-documented migration edits, then compares it with the recorded source hash.
+documented migration edits and title capitalization, then compares it with
+the recorded source hash.
 No downloaded snapshot, network access, or third-party modules are required.
 """
 
@@ -93,11 +94,21 @@ def main():
                            + 'display_date: "' + post["display_date"] + '"\n')
         require(expected_header in text, f"{path}: missing imported layout/permalink")
         reconstructed = text.replace(expected_header, "layout: post\n", 1)
+        frontmatter, separator, body = reconstructed.partition("\n---\n")
+        require(bool(separator) and frontmatter.startswith("---\n"),
+                f"{path}: missing post frontmatter")
+        expected_title = 'title:  "' + post["display_title"] + '"'
+        original_title = 'title:  "' + post["original_title"] + '"'
+        frontmatter, title_count = re.subn(
+            r"(?m)^" + re.escape(expected_title) + r"$",
+            lambda match: original_title, frontmatter, count=1)
+        require(title_count == 1, f"{path}: missing expected capitalized title")
+        reconstructed = frontmatter + separator + body
         reconstructed = re.sub(
             r"\{\{ '/blog/images/([^']+)' \| relative_url \}\}",
             r"{{ site.baseurl }}/images/\1", reconstructed)
         require(digest(reconstructed.encode()) == post["original_sha256"],
-                f"{path}: content differs from original beyond the migration edits")
+                f"{path}: content differs from original beyond the documented edits")
         require("{{ site.baseurl }}" not in text, f"{path}: old image prefix remains")
         published_date = datetime.strptime(post["original_date"],
                                             "%Y-%m-%d %H:%M:%S %z").astimezone(timezone.utc)

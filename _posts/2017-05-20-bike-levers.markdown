@@ -2,7 +2,7 @@
 layout: blog_post
 permalink: /blog/seattle/2017/05/19/bike-levers/
 display_date: "2017-05-19"
-title:  "plan: replacing bike levers"
+title:  "Plan: replacing bike levers"
 date:   2017-05-19 08:30:00 -0700
 categories: seattle
 ---

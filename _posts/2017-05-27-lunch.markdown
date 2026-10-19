@@ -2,7 +2,7 @@
 layout: blog_post
 permalink: /blog/seattle/2017/05/27/lunch/
 display_date: "2017-05-27"
-title:  "lunch times"
+title:  "Lunch times"
 date:   2017-05-27 16:30:00 -0700
 categories: seattle
 ---
